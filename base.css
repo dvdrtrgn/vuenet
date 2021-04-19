@@ -1,6 +1,9 @@
 html {
-  background-image: url(https://i.imgur.com/SSCkJKO.png);
+  background-image: url(./images/bkgr.png);
+  background-position: bottom;
+  background-repeat: no-repeat;
   background-size: cover;
+  height: 100vh;
 }
 
 body {
