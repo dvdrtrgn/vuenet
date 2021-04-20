@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Make a note</title>
+  <link rel="stylesheet" href="./base.css">
+</head>
+
+<body>
+  <h1>learn the midi notes</h1>
+
+  <form action="">
+    <p>
+      Type a midi note number<br>
+      <i>(from from 21… 128)</i> <br>
+    </p>
+    <input type="text" placeholder="middle C is 60" style="text-align: center;">
+    <p>
+      Then press enter
+    </p>
+    <textarea style="height: 5rem; width: 15rem;" placeholder="Note data..."></textarea>
+  </form>
+
+  <script type="module">
+    import makeNote from './scripts/makeNote.js';
+
+    var form = document.querySelector('form');
+    var input = form.querySelector('input');
+    var output = form.querySelector('textarea');
+
+    form.addEventListener('submit', function (evt) {
+      evt.preventDefault();
+
+      var num = input.value;
+      var note = makeNote(input.value);
+
+      if (input.value > 128 || input.value < 21) {
+        alert('clamping to range 21-128');
+      }
+      input.value = note.midi;
+
+      output.value = JSON.stringify(note, null, 2).replace(/"/g, '');
+    })
+  </script>
+
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <p>🎸stack</p>
+</body>
+
+</html>
