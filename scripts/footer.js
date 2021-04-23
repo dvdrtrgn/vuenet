@@ -14,9 +14,9 @@ window.Footer = new Vue({
         |
         <a href="/make-a-note.html">midi</a>
       </p>
-      <code>🎸stack</code>
-      <code>https://developer.mozilla.org/en-US/docs/</code>
-      <code>https://www.netlify.com/</code>
+      <b>🎸stack</b>
+      <code>developer.mozilla.org</code>
+      <code>www.netlify.com</code>
     </footer>`,
   data: {
   },

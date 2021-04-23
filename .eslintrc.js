@@ -18,5 +18,6 @@ module.exports = {
     'import/extensions': 'off',
     'import/no-unresolved': 'off',
     'vue/comment-directive': 'off',
+    'no-irregular-whitespace': 'off',
   },
 };
