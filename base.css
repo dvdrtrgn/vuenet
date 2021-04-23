@@ -14,7 +14,13 @@ body {
 }
 
 a {
+  border-bottom: 1px solid silver;
   font-family: sans-serif;
+  text-decoration: none;
+}
+a:hover,
+a:focus {
+  border-bottom: 2px solid red;
 }
 
 .zbtn {
@@ -22,4 +28,24 @@ a {
   border: 1px solid silver;
   border-radius: 0.5em;
   padding: 0 0.5em;
+}
+
+code {
+  background: rgba(170, 231, 255, 0.2);
+  border-radius: 0.25rem;
+  border: 1px solid #E5E5E5;
+  font-family: monospace, serif;
+  padding: 0 0.25rem;
+}
+
+main {
+  height: 66vh;
+  overflow: auto;
+}
+
+footer {
+  bottom: 8vh;
+  font-size: 0.8em;
+  position: fixed;
+  width: 100%;
 }

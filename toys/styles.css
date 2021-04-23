@@ -1,0 +1,48 @@
+:root {
+  --primary: rgb(104, 5, 5);
+  --icetea: rgb(158, 42, 4);
+  --bourbon: rgb(128, 13, 0);
+  --ebony: rgb(28, 28, 28);
+  --dark: rgb(28, 28, 28);
+  --light: #ccc;
+  --largeGap: 0.5rem;
+  --smallGap: 0.2rem;
+  --grad: linear-gradient(160deg, var(--primary), var(--dark));
+}
+
+.color-box {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  margin-top: 5px;
+}
+
+h1 {
+  font-size: 2rem;
+}
+
+input,
+button {
+  appearance: none;
+  background: none;
+  border: 1px solid silver;
+  font-size: 1em;
+  padding: 0.2rem;
+  text-align: center;
+}
+
+button {
+  cursor: pointer;
+  height: 2rem;
+  margin: 0.2rem;
+  width: 2rem;
+}
+
+textarea {
+  background: none;
+  border: 0;
+  font-size: 1em;
+  height: 7rem;
+  resize: none;
+  width: 14rem;
+}
