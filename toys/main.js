@@ -19,22 +19,22 @@ window.App = new Vue({
       v-model="midi">
     <p>
       Then press enter, or
-      <button @click="down">⇩</button>
-      <button @click="up">⇧</button>
+      <button :disabled="midi === 21" @click="down">⇩</button>
+      <button :disabled="midi === 128" @click="up">⇧</button>
     </p>
-    <textarea v-model="output">{{output}}</textarea>
+    <textarea :value="output"></textarea>
   </form>
   <!-- 🔼🔽 -->
 `,
   data: {
     midi: null,
-    note: '',
+    info: '',
   },
   methods: {
     process() {
       if (this.midi < 1) this.midi = 60;
       this.midi = Math.min(Math.max(this.midi, 21), 128);
-      this.note = makeNote(this.midi);
+      this.info = makeNote(this.midi);
     },
     up() {
       if (this.midi === null) this.midi = 60;
@@ -48,7 +48,7 @@ window.App = new Vue({
   },
   computed: {
     output() {
-      return JSON.stringify(this.note, null, 2).replace(/"/g, '');
+      return JSON.stringify(this.info, null, 2).replace(/"/g, '');
     },
   },
 });

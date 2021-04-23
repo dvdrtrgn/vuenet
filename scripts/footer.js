@@ -7,21 +7,27 @@ window.Footer = new Vue({
   components: {},
   template: // html
     `<footer>
-      <p>
-        <a href="/">home</a>
+      <nav>
+        <a class="code" href="/">home</a>
         |
-        <a href="/resume.html">resume</a>
+        <a class="code" href="/resume.html">resume</a>
         |
-        <a href="/make-a-note.html">midi</a>
-      </p>
-      <b>🎸stack</b>
-      <code>developer.mozilla.org</code>
-      <code>www.netlify.com</code>
+        <a class="code" href="/make-a-note.html">midi</a>
+      </nav>
+      <p class="stack">stack</p>
+      <a class="code" href="https://vuejs.org/">vuejs.org</a>
+      <a class="code" href="https://www.netlify.com">netlify.com</a>
+      <a class="code" href="https://developer.mozilla.org">developer.mozilla.org</a>
+      <br><br>
+      <pre>{{ loc }}</pre>
     </footer>`,
   data: {
   },
   methods: {
   },
   computed: {
+    loc() {
+      return window.location.href;
+    },
   },
 });
