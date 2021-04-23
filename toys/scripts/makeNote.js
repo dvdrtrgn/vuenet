@@ -1,13 +1,15 @@
 const NOTES = 'A AB B C CD D DE E F FG G GA'.split(' ');
-const SHARP = !true;
+const FLAT = true;
 const SYMBOL = {
   sharp: '♯',
   flat: '♭',
   natural: '♮',
 };
+const MIN = 12;
+const MAX = 120;
 
 function freqFromMidi(midi) {
-  return Math.round(2 ** ((midi - 69) / 12) * 440);
+  return (2 ** ((midi - 69) / 12) * 440).toPrecision(4);
 }
 
 function octaveFromMidi(midi) {
@@ -15,20 +17,20 @@ function octaveFromMidi(midi) {
 }
 
 function nameFromMidi(midi) {
-  return NOTES[(midi - 21) % 12];
+  return NOTES[(midi + 3) % 12];
 }
 
 function asSharp(str) {
-  return str.length > 1 ? str[0] + SYMBOL.sharp : str[0];
+  return str.length > 1 ? str[0] + SYMBOL.sharp : str[0] + SYMBOL.natural;
 }
 
 function asFlat(str) {
-  return str.length > 1 ? str[1] + SYMBOL.flat : str[0];
+  return str.length > 1 ? str[1] + SYMBOL.flat : str[0] + SYMBOL.natural;
 }
 
 function normalize(num) {
   let norm = num;
-  if (num < 21) norm = 21; else if (num > 128) norm = 128;
+  if (num < MIN) norm = MIN; else if (num > MAX) norm = MAX;
   if (norm !== num) console.warn(`Normalizing ${num} to ${norm}`);
   return Math.round(norm);
 }
@@ -38,7 +40,7 @@ function makeNote(num) {
   const name = nameFromMidi(midi);
 
   return {
-    name: SHARP ? asSharp(name) : asFlat(name),
+    name: makeNote.flat ? asFlat(name) : asSharp(name),
     octave: octaveFromMidi(midi),
     frequency: freqFromMidi(midi),
     midi,
@@ -46,6 +48,11 @@ function makeNote(num) {
     // asFlat: asFlat(name),
   };
 }
+
+makeNote.min = MIN;
+makeNote.max = MAX;
+makeNote.flat = FLAT;
+makeNote.symbol = SYMBOL;
 
 export default makeNote;
 

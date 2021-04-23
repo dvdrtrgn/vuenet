@@ -1,6 +1,6 @@
 html {
   background-attachment: fixed;
-  background-image: url('./images/bkgr.png');
+  background-image: url("./images/bkgr.png");
   background-position: bottom;
   background-repeat: no-repeat;
   background-size: cover;
@@ -60,20 +60,17 @@ footer {
 }
 footer .stack {
   color: black;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   font-weight: 800;
   margin: 1rem;
   text-shadow: 1px 2px 3px white;
 }
 footer .stack::before {
-  content: '🎸';
+  content: "🎸";
   font-size: 1.3rem;
 }
 footer pre {
   background: rgba(255, 255, 255, 0.4);
   border-radius: 0.25rem;
-  /* border: 1px solid white; */
-  /* display: inline-block; */
   margin: 0;
-  padding: 0 3rem;
 }

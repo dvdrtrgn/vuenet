@@ -23,7 +23,6 @@ h1 {
 
 input,
 button {
-  appearance: none;
   background: none;
   border: 1px solid silver;
   font-size: 1em;
@@ -32,6 +31,7 @@ button {
 }
 
 button {
+  appearance: none;
   cursor: pointer;
   height: 2rem;
   margin: 0.2rem;
