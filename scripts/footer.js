@@ -13,6 +13,8 @@ window.Footer = new Vue({
         <a class="code" href="/resume.html">resume</a>
         |
         <a class="code" href="/make-a-note.html">midi</a>
+        |
+        <a class="code" href="/earmastery">intervals</a>
       </nav>
       <p class="stack">stack</p>
       <a class="code" href="https://vuejs.org/">vuejs.org</a>

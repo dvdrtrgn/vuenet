@@ -1,0 +1,1126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Interval Helpers</title>
+    <base target="_blank" />
+    <meta
+      name="viewport"
+      content="width=device-width, maximum-scale=1, minimum-scale=1"
+    />
+    <script src="https://unpkg.com/vue"></script>
+    <link rel="stylesheet" href="./style.css">
+  </head>
+
+  <body>
+    <main id="App" :class="readstate()">
+      <table>
+        <thead>
+          <tr @click="toggle">
+            <th>Step</th>
+            <th>Ascending</th>
+            <th>Descending</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th class="intervals_title">
+              <span>Minor 2nd</span>
+            </th>
+            <td class="song-container">
+              <a href="https://www.youtube.com/watch?v=ZvCI-gNK_y4#t=0s"
+                >Jaws <i>Theme</i></a
+              >
+              <a href="https://www.youtube.com/watch?v=HhHwnrlZRus#t=2s"
+                >The Pink Panther <i>theme</i></a
+              >
+              <a href="https://www.youtube.com/watch?v=Cp0Oh6Ckh1M#t=8s"
+                >Isn’t She Lovely <i>Stevie Wonder</i></a
+              >
+              <a href="https://www.youtube.com/watch?v=hyk0b0cOogk#t=84s"
+                >White Christmas <i>Irving Berlin</i></a
+              >
+              <a href="https://www.youtube.com/watch?v=AMSiHdrHl0g#t=2s"
+                >A Hard Day’s Night <i>The Beatles</i></a
+              >
+              <a href="https://www.youtube.com/watch?v=mrj0v3Lm57Y#t=8s"
+                >Once Upon a December <i>Anastasia</i></a
+              >
+              <a href="https://www.youtube.com/watch?v=5M2FWN_d1bM#t=16s"
+                >Chromatic scale</a
+              >
+              <a href="https://www.youtube.com/watch?v=yctfXIqugXc#t=7s"
+                >New World Symphony, 4th movement <i>Dvořák</i></a
+              >
+              <a href="https://www.youtube.com/watch?v=I6d03gbmAzc#t=0s"
+                >I Left My Heart in San Francisco <i>Tony Bennett</i></a
+              >
+              <a href="https://www.youtube.com/watch?v=TqDNe_Kjp5g#t=0s"
+                >Stormy Weather <i>Arlen/Koehler</i></a
+              >
+              <a href="https://www.youtube.com/watch?v=br33mMsDkRo#t=11s"
+                >How Insensitive <i>Jobim</i></a
+              >
+              <a href="https://www.youtube.com/watch?v=OloXRhesab0#t=268s"
+                >The Barber of Seville <i>Gioachino Rossini</i></a
+              >
+              <a href="https://www.youtube.com/watch?v=EKo_EmfEPWs#t=30s"
+                >Lascia ch’io pianga <i>Handel</i></a
+              >
+              <a href="https://www.youtube.com/watch?v=D45e7-jCDTM#t=29s"
+                >Nice Work if You Can Get It <i>Gershwin</i></a
+              >
+              <a href="https://www.youtube.com/watch?v=_mZgW5gPakA#t=24s"
+                >I Remember You <i>Schertzinger/Mercer</i></a
+              >
+              <a href="https://www.youtube.com/watch?v=cKQc-cbAvdQ#t=0s"
+                >I’m Getting Sentimental Over You <i>Tommy Dorsey</i></a
+              >
+              <a href="https://www.youtube.com/watch?v=NreloPHncsU#t=6s"
+                >What’s New <i>Haggart/Burke</i></a
+              >
+            </td>
+            <td class="song-container">
+              <a href="https://www.youtube.com/watch?v=LQTTFUtMSvQ#t=0s"
+                >Für Elise <i>Beethoven</i></a
+              >
+              <a href="https://www.youtube.com/watch?v=MpgaWm2pnNs#t=0s"
+                >Joy to the World <i>Christmas</i></a
+              >
+              <a href="https://www.youtube.com/watch?v=D8zlUUrFK-M#t=86s"
+                >Jurassic Park <i>theme</i></a
+              >
+              <a href="https://www.youtube.com/watch?v=KO3l6qNA2Q4#t=8s"
+                >For Whom the Bell Tolls <i>Metallica</i></a
+              >
+              <a href="https://www.youtube.com/watch?v=KRIj-Ch-Yfw#t=93s"
+                >Oh Little Town of Betlehem</a
+              >
+              <a href="https://www.youtube.com/watch?v=AlB_jgFUpbM#t=6s"
+                >Major scale <i>descending</i></a
+              >
+              <a href="https://www.youtube.com/watch?v=QgVPnWmUqd4#t=27s"
+                >Shall We Dance <i>The King and I</i></a
+              >
+              <a href="https://www.youtube.com/watch?v=GXFSK0ogeg4#t=25s"
+                >O Fortuna <i>Carl Orff’s Carmina Burana</i></a
+              >
+              <a href="https://www.youtube.com/watch?v=EDK-GNxefi8#t=6s"
+                >Stella by Starlight</a
+              >
+              <a href="https://www.youtube.com/watch?v=_VJY97l0jVA#t=8s"
+                >The Lady Is a Tramp <i>Rodgers/Hart</i></a
+              >
+              <a href="https://www.youtube.com/watch?v=3-4J5j74VPw#t=11s"
+                >Bolero <i>Ravel</i></a
+              >
+              <a href="https://www.youtube.com/watch?v=l45DAuXYSIs#t=0s"
+                >Symphony No. 40, 1st movement <i>Mozart</i></a
+              >
+              <a href="https://www.youtube.com/watch?v=X6pB2WtStbI#t=0s"
+                >Solar <i>Miles Davis</i></a
+              >
+              <a href="https://www.youtube.com/watch?v=aS-8VO58IzE#t=5s"
+                >Sophisticated Lady <i>Duke Ellington</i></a
+              >
+              <a href="https://www.youtube.com/watch?v=2oyhlad64-s#t=17s"
+                >Entre dos aguas <i>Paco de Lucia</i></a
+              >
+            </td>
+          </tr>
+          <tr>
+            <th class="intervals_title">
+              <span>Major 2nd</span>
+            </th>
+            <td class="song-container">
+              <a href="https://www.youtube.com/watch?v=90w2RegGf9w#t=7s"
+                >Happy Birthday to You</a
+              >
+              <a href="https://www.youtube.com/watch?v=OxkAyE4ctoo#t=16s"
+                >Do-Re-Mi/Do, a Deer <i>The Sound of Music</i></a
+              >
+              <a href="https://www.youtube.com/watch?v=-eqJwRkDsSw#t=50s"
+                >Silent Night</a
+              >
+              <a href="https://www.youtube.com/watch?v=7ara3-hDH6I#t=22s"
+                >Rudolph the Red-Nosed Reindeer</a
+              >
+              <a href="https://www.youtube.com/watch?v=gBbjOyMsUD4#t=8s"
+                >Frere Jacques</a
+              >
+              <a href="https://www.youtube.com/watch?v=jG89pIDq6tg#t=41s"
+                >Major scale <i>ascending</i></a
+              >
+              <a href="https://www.youtube.com/watch?v=x6zypc_LhnM#t=6s"
+                >Linus and Lucy – "Peanuts Theme" <i>Vince Guaraldi</i></a
+              >
+              <a href="https://www.youtube.com/watch?v=nHuko5BCFzA#t=10s"
+                >Strangers in the Night <i>Frank Sinatra</i></a
+              >
+              <a href="https://www.youtube.com/watch?v=h1j5IxOPXdY#t=1s"
+                >The Nutcracker – Marche <i>Tchaikovsky</i></a
+              >
+              <a href="https://www.youtube.com/watch?v=N_A9xX_CVFA#t=18s"
+                >My Funny Valentine <i>Babes in Arms</i></a
+              >
+              <a href="https://www.youtube.com/watch?v=4fj9ZoUr1XA#t=60s"
+                >Falling Slowly <i>Once</i></a
+              >
+              <a href="https://www.youtube.com/watch?v=t6wjCcWC2aE#t=12s"
+                >Non, je ne regrette rien <i>Edith Piaf</i></a
+              >
+              <a href="https://www.youtube.com/watch?v=Ows-wRWgDMc#t=0s"
+                >EastEnders <i>theme</i></a
+              >
+              <a href="https://www.youtube.com/watch?v=_pINSUXeOJ0#t=0s"
+                >Body and Soul</a
+              >
+              <a href="https://www.youtube.com/watch?v=A_omszhwEAw#t=49s"
+                >There Will Never Be Another You <i>Nat King Cole</i></a
+              >
+              <a href="https://www.youtube.com/watch?v=zfPWU6CJ3vY#t=58s"
+                >Sleeping Sun <i>Nightwish</i></a
+              >
+              <a href="https://www.youtube.com/watch?v=zzDUi_L6MzA#t=62s"
+                >Tennessee Waltz</a
+              >
+              <a href="https://www.youtube.com/watch?v=roHYXrLhmHc#t=0s"
+                >Barney Miller – Bass line <i>Theme</i></a
+              >
+              <a href="https://www.youtube.com/watch?v=hFxB4qfr89w#t=0s"
+                >Grace <i>Gordian Knot</i></a
+              >
+            </td>
+            <td class="song-container">
+              <a href="https://www.youtube.com/watch?v=Zq-MtHpRhVk#t=11s"
+                >Mary Had a Little Lamb</a
+              >
+              <a href="https://www.youtube.com/watch?v=ONXp-vpE9eU#t=10s"
+                >Yesterday <i>The Beatles</i></a
+              >
+              <a href="https://www.youtube.com/watch?v=0Tjlxpf06Gg#t=423s"
+                >Mamma Mia! <i>ABBA</i></a
+              >
+              <a href="https://www.youtube.com/watch?v=Yi-q5X220hg#t=4s"
+                >Three Blind Mice</a
+              >
+              <a href="https://www.youtube.com/watch?v=CD-E-LDc384#t=96s"
+                >Enter Sandman <i>Metallica</i></a
+              >
+              <a href="https://www.youtube.com/watch?v=Pppexz-KKig#t=17s"
+                >Canon in D <i>Pachelbel</i></a
+              >
+              <a href="https://www.youtube.com/watch?v=We4xRHMuCNg#t=18s"
+                >The First Noel</a
+              >
+              <a href="https://www.youtube.com/watch?v=IVJD3dL4diY#t=5s"
+                >Toccata and Fugue in D minor, BWV 565 <i>Bach</i></a
+              >
+              <a href="https://www.youtube.com/watch?v=V-_3CLDUywQ#t=7s"
+                >Whistle While You Work <i>Disney/Snow White</i></a
+              >
+
+              <a
+                href="https://www.youtube.com/watch?v=ypyTjVxMaX8&amp;feature=youtu.be#t=29s"
+                >The Two Towers -The Lord of the Rings <i>Theme</i></a
+              >
+              <a href="https://www.youtube.com/watch?v=AnwO_0DrpCk#t=8s"
+                >Away in a Manger</a
+              >
+              <a href="https://www.youtube.com/watch?v=ICiFnQrHOrk#t=4s"
+                >M.A.S.H. <i>theme</i></a
+              >
+              <a href="https://www.youtube.com/watch?v=J1cxRLVJNfs#t=6s"
+                >NBC News <i>theme</i></a
+              >
+              <a href="https://www.youtube.com/watch?v=kle2xHhRHg4#t=8s"
+                >Eight Days a Week <i>The Beatles</i></a
+              >
+              <a href="https://www.youtube.com/watch?v=RPfFhfSuUZ4#t=0s"
+                >Freddie Freeloader <i>Miles Davis</i></a
+              >
+              <a href="https://www.youtube.com/watch?v=25yQ9C4E79w#t=7s"
+                >Satin Doll <i>Ellington/Strayhorn</i></a
+              >
+              <a href="https://www.youtube.com/watch?v=MtLhPeLB9bA#t=7s"
+                >Crossroads riff <i>Eric Clapton</i></a
+              >
+              <a href="https://www.youtube.com/watch?v=gbZeEGRj-JY#t=58s"
+                >On the Sunny Side of the Street</a
+              >
+
+              <a
+                href="https://www.youtube.com/watch?v=1NVrfgMHXE0&amp;feature=youtu.be&amp;t=#t=80s"
+                >Unchained Melody <i>Les Baxter Orchestra 1955</i></a
+              >
+            </td>
+          </tr>
+          <tr>
+            <th class="intervals_title">
+              <span>Minor 3rd</span>
+            </th>
+            <td class="song-container">
+              <a href="https://www.youtube.com/watch?v=0J2QdDbelmY#t=0s"
+                >Seven Nation Army <i>The White Stripes</i></a
+              >
+              <a href="https://www.youtube.com/watch?v=ldSvr_nDjKU#t=0s"
+                >Greensleeves</a
+              >
+              <a href="https://www.youtube.com/watch?v=zwDvF0NtgdU#t=11s"
+                >O Canada <i>Canadian national anthem</i></a
+              >
+              <a href="https://www.youtube.com/watch?v=XBYlwvGINTA#t=49s"
+                >So Long, Farewell <i>The Sound of Music</i></a
+              >
+              <a href="https://www.youtube.com/watch?v=t894eGoymio#t=8s"
+                >Lullaby <i>Brahms</i></a
+              >
+              <a href="https://www.youtube.com/watch?v=dsUXAEzaC3Q#t=18s"
+                >Bad <i>Michael Jackson</i></a
+              >
+              <a href="https://www.youtube.com/watch?v=arpZ3fCwDEw#t=23s"
+                >Smoke on the Water <i>Deep Purple</i></a
+              >
+              <a href="https://www.youtube.com/watch?v=SUtziaZlDeE#t=10s"
+                >Spiderman <i>cartoon theme</i></a
+              >
+              <a href="https://www.youtube.com/watch?v=BlLUMwo_VVU#t=136s"
+                >Georgia on My Mind</a
+              >
+              <a href="https://www.youtube.com/watch?v=8aQRq9hhekA#t=35s"
+                >Iron Man <i>Black Sabbath</i></a
+              >
+              <a href="https://www.youtube.com/watch?v=0bcIjILqORM#t=0s"
+                >Whole Lotta Love <i>Led Zeppelin</i></a
+              >
+              <a href="https://www.youtube.com/watch?v=oXtSFKTvbHU#t=22s"
+                >Sally’s Song <i>Nightmare Before Christmas</i></a
+              >
+              <a href="https://www.youtube.com/watch?v=S-Xm7s9eGxU#t=10s"
+                >Gymnopédie No.1 <i>Erik Satie</i></a
+              >
+              <a href="https://www.youtube.com/watch?v=i3iW-ERh8dg#t=9s"
+                >Beverly Hills Cop <i>theme</i></a
+              >
+              <a href="https://www.youtube.com/watch?v=S7dg0X1LskI#t=7s"
+                >Windmill Hut <i>Zelda: Ocarina of Time</i></a
+              >
+              <a href="https://www.youtube.com/watch?v=vmlJrYGDfr0#t=8s"
+                >Oh Where, Oh Where, Has My Little Dog Gone</a
+              >
+              <a href="https://www.youtube.com/watch?v=RfHnzYEHAow#t=13s"
+                >The Impossible Dream <i>Man of La Mancha</i></a
+              >
+              <a href="https://www.youtube.com/watch?v=vdvnOH060Qg#t=0s"
+                >Happiness Is a Warm Gun <i>Beatles</i></a
+              >
+              <a href="https://www.youtube.com/watch?v=4CK2hx377iU#t=7s"
+                >Final Fantasy 7, Aerith’s theme <i>N. Uematsu</i></a
+              >
+              <a href="https://www.youtube.com/watch?v=sRnx-s1TQbU#t=12s"
+                >A Time for Us <i>Romeo &amp; Juliet</i></a
+              >
+
+              <a href="https://www.youtube.com/watch?v=1nh8V6IlQdM#t=0s"
+                >Minor Swing <i>Django Reinhardt</i></a
+              >
+              <a href="https://www.youtube.com/watch?v=L_XJ_s5IsQc#t=13s"
+                >Lingus <i>Snarky Puppy</i></a
+              >
+              <a href="https://www.youtube.com/watch?v=YrRMQsnSvAE#t=18s"
+                >Somewhere My Love <i>Dr. Zhivago</i></a
+              >
+              <a href="https://www.youtube.com/watch?v=JYMySrHL0Fo#t=27s"
+                >Braveheart <i>theme</i></a
+              >
+              <a href="https://www.youtube.com/watch?v=2W_G3xmSGfo#t=12s"
+                >Comptine d’un autre Été <i>Amélie Poulain Soundtrack</i></a
+              >
+              <a href="https://www.youtube.com/watch?v=QbgyZzJ7Oig#t=74s"
+                >A Foggy Day <i>Gershwin</i></a
+              >
+              <a href="https://www.youtube.com/watch?v=3LFjHo7Cdrw#t=12s"
+                >Spoonful <i>Howlin’ Wolf</i></a
+              >
+            </td>
+            <td class="song-container">
+              <a href="https://www.youtube.com/watch?v=361KDFtzDiY#t=0s"
+                >Hey Jude <i>Beatles</i></a
+              >
+              <a href="https://www.youtube.com/watch?v=hvc9f1lB7fk#t=7s"
+                >Frosty the snowman <i>Christmas</i></a
+              >
+              <a href="https://www.youtube.com/watch?v=2qZe8aB7plU#t=0s"
+                >The Star-Spangled Banner <i>US national anthem</i></a
+              >
+              <a href="https://www.youtube.com/watch?v=ZNqAHrNNLqA#t=33s"
+                >Jesus Loves Me</a
+              >
+              <a href="https://www.youtube.com/watch?v=vFZhL92W6TE#t=8s"
+                >This Old Man</a
+              >
+              <a href="https://www.youtube.com/watch?v=KjgWWjkNbhU#t=48s"
+                >Can You Feel the Love Tonight <i>Elton John</i></a
+              >
+              <a href="https://www.youtube.com/watch?v=97nAvTVeR6o#t=40s"
+                >They don’t care about us <i>Michael Jackson</i></a
+              >
+              <a href="https://www.youtube.com/watch?v=GGU1P6lBW6Q#t=21s"
+                >Ride Of The Valkyries <i>Wagner</i></a
+              >
+              <a href="https://www.youtube.com/watch?v=kzTQ9fjforY#t=0s"
+                >Peer Gynt – Suite No. 1, Op. 46 – I. Morning Mood
+                <i>Edvard Grieg</i></a
+              >
+              <a href="https://www.youtube.com/watch?v=_8FLXwmuVbY#t=22s"
+                >Misty <i>Erroll Garner</i></a
+              >
+              <a href="https://www.youtube.com/watch?v=toX5cEKg5I8#t=17s"
+                >You’re A Grand Old Flag</a
+              >
+              <a href="https://www.youtube.com/watch?v=1JdR4xUGcJg#t=2s"
+                >Hook <i>theme</i></a
+              >
+              <a href="https://www.youtube.com/watch?v=gLkbUOR-7N8#t=0s"
+                >500 Miles High <i>Chick Corea</i></a
+              >
+              <a href="https://www.youtube.com/watch?v=RCmn61kOVoQ#t=23s"
+                >What Is This Thing Called Love <i>Cole Porter</i></a
+              >
+              <a href="https://www.youtube.com/watch?v=6cHW8R2cP24#t=4s"
+                >Trois Jeunes Tambours</a
+              >
+            </td>
+          </tr>
+          <tr>
+            <th class="intervals_title">
+              <span>Major 3rd</span>
+            </th>
+            <td class="song-container">
+              <a href="https://www.youtube.com/watch?v=UREnLVrHv4A#t=27s"
+                >Oh, When the Saints</a
+              >
+              <a href="https://www.youtube.com/watch?v=9SsDHE81EF4#t=108s"
+                >Kumbaya</a
+              >
+              <a href="https://www.youtube.com/watch?v=nJoQbLV2sQU#t=21s"
+                >Ob-la-di Ob-la-da <i>The Beatles</i></a
+              >
+              <a href="https://www.youtube.com/watch?v=1w7OgIMMRc4#t=15s"
+                >Sweet Child O’ Mine – Bass riff intro <i>Guns N’ Roses</i></a
+              >
+              <a href="https://www.youtube.com/watch?v=RnwuF-MCRuo#t=0s"
+                >Four Seasons: Spring <i>Vivaldi</i></a
+              >
+              <a href="https://www.youtube.com/watch?v=Em6pW5Mixjw#t=0s"
+                >Can’t Buy Me Love <i>The Beatles</i></a
+              >
+              <a href="https://www.youtube.com/watch?v=WfBOrtK1sx4#t=15s"
+                >Morning has Broken</a
+              >
+              <a href="https://www.youtube.com/watch?v=JE-dqW4uBEE#t=0s"
+                >Blister in the Sun <i>Violent Femmes</i></a
+              >
+              <a href="https://www.youtube.com/watch?v=pd_5-2kCzfs#t=30s"
+                >Michael Row the Boat Ashore</a
+              >
+              <a href="https://www.youtube.com/watch?v=uQE98DDO6e0#t=12s"
+                >Sweet Hour Of Prayer</a
+              >
+              <a href="https://www.youtube.com/watch?v=dy9nIKo5MTw#t=16s"
+                >While Shepherds Watched Their Flocks by Night</a
+              >
+              <a href="https://www.youtube.com/watch?v=SwS6OkgUXKE#t=8s"
+                >From the Halls of Montezuma <i>Marines’ Hymn</i></a
+              >
+              <a href="https://www.youtube.com/watch?v=z6s7DyC4Vdk#t=2s"
+                >I Can’t Get Started <i>Duke/Gershwin</i></a
+              >
+              <a href="https://www.youtube.com/watch?v=badRuS2emc0#t=8s"
+                >Dallas theme <i>French version</i></a
+              >
+              <a href="https://www.youtube.com/watch?v=NHEYlNRypqo#t=0s"
+                >Nous n’irons plus au bois</a
+              >
+            </td>
+            <td class="song-container">
+              <a href="https://www.youtube.com/watch?v=Thz1zDAytzU#t=5s"
+                >Swing Low Sweet Chariot</a
+              >
+
+              <a
+                href="https://www.youtube.com/watch?v=PivWY9wn5ps&amp;ob=#t=11s"
+                >Man in the Mirror; verse <i>Michael Jackson</i></a
+              >
+              <a href="https://www.youtube.com/watch?v=ZW0DfsCzfq4#t=35s"
+                >Summer Nights <i>Grease</i></a
+              >
+              <a href="https://www.youtube.com/watch?v=UrBCOEjnBP8#t=13s"
+                >Summertime <i>Gershwin</i></a
+              >
+              <a href="https://www.youtube.com/watch?v=XZ2TT3SCGdM#t=12s"
+                >Shoo Fly, Don’t Bother Me</a
+              >
+              <a href="https://www.youtube.com/watch?v=6z4KK7RWjmk#t=8s"
+                >Fate – Symphoni No.5 <i>Beethoven</i></a
+              >
+              <a href="https://www.youtube.com/watch?v=30FTr6G53VU#t=0s"
+                >Giant steps <i>John Coltrane</i></a
+              >
+              <a href="https://www.youtube.com/watch?v=wlLR_bFryAo#t=3s"
+                >Good Night Ladies</a
+              >
+              <a href="https://www.youtube.com/watch?v=pwLlam8wrOU#t=12s"
+                >Bessies Blues <i>John Coltrane</i></a
+              >
+              <a href="https://www.youtube.com/watch?v=dornar3fmn8#t=10s"
+                >L’Eau vive <i>Guy Beart</i></a
+              >
+            </td>
+          </tr>
+          <tr>
+            <th class="intervals_title">
+              <span>Perfect 4th</span>
+            </th>
+            <td class="song-container">
+              <a href="https://www.youtube.com/watch?v=oBt6Myv75jk#t=30s"
+                >Here comes the Bride – Wedding March <i>Wagner</i></a
+              >
+              <a href="https://www.youtube.com/watch?v=MS93Q4jQAO0#t=10s"
+                >Amazing Grace</a
+              >
+              <a href="https://www.youtube.com/watch?v=jhTU7_mipB0#t=40s"
+                >Harry Potter theme</a
+              >
+              <a href="https://www.youtube.com/watch?v=BI7wis-HmfI#t=17s"
+                >We Wish You a Merry Christmas</a
+              >
+              <a href="https://www.youtube.com/watch?v=HcZ9kQ1h-ZY#t=0s"
+                >The Force Theme – Star Wars <i>John Williams</i></a
+              >
+              <a href="https://www.youtube.com/watch?v=mnipB_8Br8U#t=16s"
+                >Super Mario</a
+              >
+              <a href="https://www.youtube.com/watch?v=2lD711_Xh8s#t=5s"
+                >Love Me Tender <i>Elvis Presley</i></a
+              >
+              <a href="https://www.youtube.com/watch?v=pTFE8cirkdQ#t=161s"
+                >Black or White <i>Michael Jackson</i></a
+              >
+              <a href="https://www.youtube.com/watch?v=zQRTk1RvFH8#t=8s"
+                >Oh Christmas Tree/Oh Tannenbaum</a
+              >
+              <a href="https://www.youtube.com/watch?v=W4r74IIKbh8#t=15s"
+                >Auld Lang Syne</a
+              >
+              <a href="https://www.youtube.com/watch?v=0niwn2pOEno#t=48s"
+                >Someday My Prince Will Come <i>Disney/Snow White</i></a
+              >
+              <a href="https://www.youtube.com/watch?v=8dTIuGjCeW8#t=14s"
+                >Hark, the Herald Angels Sing</a
+              >
+              <a href="https://www.youtube.com/watch?v=0vUCVugjNKs#t=0s"
+                >Overture/Work Song" – Les Miserables</a
+              >
+              <a href="https://www.youtube.com/watch?v=HWqKPWO5T4o#t=13s"
+                >The Godfather – Theme</a
+              >
+              <a href="https://www.youtube.com/watch?v=XsxgcLf0TSY#t=49s"
+                >Star Trek Theme <i>Next Generation</i></a
+              >
+              <a href="https://www.youtube.com/watch?v=aWa6aChSf1w#t=4s"
+                >All the Things You Are</a
+              >
+              <a href="https://www.youtube.com/watch?v=H5ea44njRTw#t=22s"
+                >La Marseillaise <i>French National Song</i></a
+              >
+              <a href="https://www.youtube.com/watch?v=-C9n_3diBeA#t=8s"
+                >El Condor Pasa</a
+              >
+              <a href="https://www.youtube.com/watch?v=-yg7aZpIXRI#t=31s"
+                >Round Midnight <i>Thelonious Monk</i></a
+              >
+              <a href="https://www.youtube.com/watch?v=CVU8dGFhV04#t=4s"
+                >Simple Gifts <i>Shaker song</i></a
+              >
+              <a href="https://www.youtube.com/watch?v=XsW4FoRzhQw#t=5s"
+                >The British Grenadiers</a
+              >
+              <a href="https://www.youtube.com/watch?v=dxdxTmPiuqA#t=3s"
+                >Doxy <i>Sonny Rollins</i></a
+              >
+              <a href="https://www.youtube.com/watch?v=hAfGHhelFEU#t=0s"
+                >Meunier tu dors</a
+              >
+              <a href="https://www.youtube.com/watch?v=o2ZiIPEorP0#t=60s"
+                >We are free <i>Hans Zimmer</i></a
+              >
+              <a href="https://www.youtube.com/watch?v=PsBYBugvDek#t=16s"
+                >Dallas <i>theme</i></a
+              >
+              <a href="https://www.youtube.com/watch?v=sRP9rvo8CZQ#t=12s"
+                >Sailing, Sailing</a
+              >
+              <a href="https://www.youtube.com/watch?v=sRP9rvo8CZQ#t=13s"
+                >Sailing, Sailing</a
+              >
+            </td>
+            <td class="song-container">
+              <a
+                href="https://www.youtube.com/watch?v=a01QQZyl-_I&amp;feature=youtu.be&amp;#t=6s"
+                >Under Pressure <i>Queen</i></a
+              >
+              <a href="https://www.youtube.com/watch?v=bcJYW1oN6fw#t=17s"
+                >Oh, come all ye faithful</a
+              >
+              <a href="https://www.youtube.com/watch?v=7lDlfDtJYF8#t=19s"
+                >I’ve Been Working on the Railroad</a
+              >
+              <a href="https://www.youtube.com/watch?v=usfiAsWR4qU#t=7s"
+                >’Hallelujah Chorus’ from Handel’s Messiah</a
+              >
+              <a href="https://www.youtube.com/watch?v=Qb_jQBgzU-I#t=28s"
+                >Eine Kleine Nachtmusik <i>Mozart</i></a
+              >
+              <a href="https://www.youtube.com/watch?v=0csGHvZfyMM#t=5s"
+                >George of the Jungle theme</a
+              >
+              <a href="https://www.youtube.com/watch?v=ISWOrI0WaLs#t=26s"
+                >Born Free <i>Movie theme by John Barry</i></a
+              >
+              <a href="https://www.youtube.com/watch?v=VgPiIpboxt0#t=0s"
+                >Shave and a Haircut</a
+              >
+              <a href="https://www.youtube.com/watch?v=eRb9oOhUOoE#t=0s"
+                >Today <i>The Smashing Pumpkins</i></a
+              >
+              <a href="https://www.youtube.com/watch?v=DZKFU2Aq1oI#t=10s"
+                >Adeste Fideles</a
+              >
+              <a href="https://www.youtube.com/watch?v=MS-ZD6Al8FY#t=13s"
+                >Softly, As in a Morning Sunrise <i>Hammerstein</i></a
+              >
+              <a href="https://www.youtube.com/watch?v=mLx6vKmd6DQ#t=17s"
+                >Yardbird suite <i>Charlie Parker</i></a
+              >
+              <a href="https://www.youtube.com/watch?v=LI2c3M9q9yI#t=6s"
+                >Lawrence of Arabia theme</a
+              >
+              <a href="https://www.youtube.com/watch?v=Ibd1-ooK5as#t=8s"
+                >L’Arlesienne Suite No. 2: Farandole <i>Bizet</i></a
+              >
+              <a href="https://www.youtube.com/watch?v=YjpCU4Zy9Cs#t=0s"
+                >Dynasty theme</a
+              >
+              <a href="https://www.youtube.com/watch?v=NRJHKzU_t1M#t=3s"
+                >A Mighty Fortress is Our God</a
+              >
+              <a href="https://www.youtube.com/watch?v=tZWTlQOCOZo#t=0s"
+                >Your woman <i>White town</i></a
+              >
+              <a href="https://www.youtube.com/watch?v=8Op5qL1CvGs#t=17s"
+                >I Didn’t Know What Time It Was <i>Rodgers</i></a
+              >
+            </td>
+          </tr>
+          <tr>
+            <th class="intervals_title">
+              <span>Tritone</span>
+            </th>
+            <td class="song-container">
+              <a href="https://www.youtube.com/watch?v=Xqog63KOANc#t=2s"
+                >The Simpsons</a
+              >
+              <a href="https://www.youtube.com/watch?v=DyofWTw0bqY#t=32s"
+                >Maria <i>West side story</i></a
+              >
+              <a href="https://www.youtube.com/watch?v=Uc9S9qfL7Ts#t=1s"
+                >Juicebox <i>The Strokes</i></a
+              >
+              <a href="https://www.youtube.com/watch?v=Cool#t=6s"
+                >Cool <i>West side story</i></a
+              >
+              <a href="https://www.youtube.com/watch?v=TdaM5Mv-TTo#t=0s"
+                >Don’t drive drunk <i>S. Wonder</i></a
+              >
+              <a href="https://www.youtube.com/watch?v=Bfw2sgGj02g#t=0s"
+                >Isotope <i>Joe Henderson</i></a
+              >
+            </td>
+            <td class="song-container">
+              <a href="https://www.youtube.com/watch?v=CxKWTzr-k6s#t=26s"
+                >Even Flow <i>Pearl Jam</i></a
+              >
+              <a href="https://www.youtube.com/watch?v=71fZhMXlGT4#t=29s"
+                >Danse Macabre <i>Saint-Saëns</i></a
+              >
+              <a href="https://www.youtube.com/watch?v=2KnyL4IFcwo#t=40s"
+                >Black Sabbath <i>Black Sabbath</i></a
+              >
+              <a href="https://www.youtube.com/watch?v=9eP2_Fk2R84#t=34s"
+                >I hope I get it <i>A Chorus Line</i></a
+              >
+              <a href="https://www.youtube.com/watch?v=_mR0tzt9XaM#t=9s"
+                >YYZ <i>Rush</i></a
+              >
+              <a href="https://www.youtube.com/watch?v=kPTBuxw0vdQ#t=12s"
+                >Blue Seven <i>Sonny Rollins</i></a
+              >
+              <a href="https://www.youtube.com/watch?v=QS1_-AlFHTU#t=0s"
+                >Nonsequence <i>Michael Gibbs</i></a
+              >
+            </td>
+          </tr>
+          <tr>
+            <th class="intervals_title">
+              <span>Perfect 5th</span>
+            </th>
+            <td class="song-container">
+              <a href="https://www.youtube.com/watch?v=C2wcqRWbdHs#t=9s"
+                >Star Wars <i>main theme</i></a
+              >
+              <a href="https://www.youtube.com/watch?v=yCjJyiqpAuU#t=20s"
+                >Twinkle Twinkle Little Star <i>Mozart</i></a
+              >
+              <a href="https://www.youtube.com/watch?v=uqv5b0UjR4g#t=8s"
+                >Can’t Help Falling in Love <i>Elvis Presley</i></a
+              >
+              <a href="https://www.youtube.com/watch?v=8Kx4xVKo9z8#t=5s"
+                >Blackbird <i>Beatles</i></a
+              >
+              <a href="https://www.youtube.com/watch?v=dw2VX5wQYQg#t=16s"
+                >My Favourite Things <i>Sound of Music</i></a
+              >
+              <a href="https://www.youtube.com/watch?v=Y2lylF5ogUQ#t=6s"
+                >Yeah <i>Usher</i></a
+              >
+              <a href="https://www.youtube.com/watch?v=XEhAXQ5QQzs#t=11s"
+                >Scarborough Fair</a
+              >
+              <a href="https://www.youtube.com/watch?v=sXPkmIwwobA#t=19s"
+                >One <i>Metallica</i></a
+              >
+              <a href="https://www.youtube.com/watch?v=IpIhzFh0yw8#t=8s"
+                >The ABC Song</a
+              >
+              <a href="https://www.youtube.com/watch?v=hAAlDoAtV7Y#t=20s"
+                >X-Files theme</a
+              >
+              <a href="https://www.youtube.com/watch?v=e9vrfEoc8_g#t=43s"
+                >Superman</a
+              >
+              <a href="https://www.youtube.com/watch?v=g3xtMZvG2WI#t=19s"
+                >Baa Baa Black Sheep</a
+              >
+              <a href="https://www.youtube.com/watch?v=1prweT95Mo0#t=9s"
+                >Bach: Cello Suite No. 1 – Prelude</a
+              >
+              <a href="https://www.youtube.com/watch?v=SLuW-GBaJ8k#t=17s"
+                >Also Sprach Zarathustra <i>Strauss</i></a
+              >
+              <a href="https://www.youtube.com/watch?v=VgoyGwnSjeE#t=6s"
+                >Lavenders Blue</a
+              >
+              <a href="https://www.youtube.com/watch?v=vyTS7uzVM6A#t=11s"
+                >Bags Groove <i>Milt Jackson</i></a
+              >
+              <a href="https://www.youtube.com/watch?v=xAyOODBmLE8#t=0s"
+                >Whisper not <i>Golson</i></a
+              >
+              <a href="https://www.youtube.com/watch?v=4mqyZbIDpdo#t=8s"
+                >One Boy <i>Bye Birdie</i></a
+              >
+              <a href="https://www.youtube.com/watch?v=inBKFMB-yPg#t=8s"
+                >Asturias <i>Albeniz</i></a
+              >
+              <a href="https://www.youtube.com/watch?v=KnjCA-h44QY#t=2s"
+                >Der er et yndigt land <i>Danish national anthem</i></a
+              >
+            </td>
+            <td class="song-container">
+              <a href="https://www.youtube.com/watch?v=2s13X66BFd8#t=0s"
+                >Flintstones theme</a
+              >
+              <a href="https://www.youtube.com/watch?v=s7L2PVdrb_8#t=9s"
+                >Game of Thrones <i>Main theme</i></a
+              >
+              <a href="https://www.youtube.com/watch?v=qGyPuey-1Jw#t=4s"
+                >What do you do with a Drunken Sailor</a
+              >
+              <a href="https://www.youtube.com/watch?v=CdqoNKCCt7A#t=19s"
+                >Don’t You <i>Forget About Me</i> <i>Simple Minds</i></a
+              >
+              <a href="https://www.youtube.com/watch?v=p1gGxpitLO8#t=3s"
+                >Minuet in G <i>Bach</i></a
+              >
+              <a href="https://www.youtube.com/watch?v=e8TZbze72Bc#t=28s"
+                >Back To The Future <i>Main theme</i></a
+              >
+              <a href="https://www.youtube.com/watch?v=wH0TKlIWuHg#t=28s"
+                >It Don’t Mean a Thing <i>Duke Ellington</i></a
+              >
+              <a href="https://www.youtube.com/watch?v=h9ZGKALMMuc#t=14s"
+                >The Way You Look Tonight</a
+              >
+              <a href="https://www.youtube.com/watch?v=wEgOM9iYETg#t=7s"
+                >Swan Lake Suite <i>Op.20</i> – Scene <i>Tchaikovsky</i></a
+              >
+              <a href="https://www.youtube.com/watch?v=XNSsv86lsok#t=28s"
+                >Schindler’s List <i>John Williams</i></a
+              >
+              <a href="https://www.youtube.com/watch?v=VofLbnNronk#t=13s"
+                >Feelings <i>Richard Clayderman</i></a
+              >
+              <a href="https://www.youtube.com/watch?v=djsuP0uta7s#t=47s"
+                >Carmen <i>Bizet</i></a
+              >
+              <a href="https://www.youtube.com/watch?v=k3gx1xxFDEs#t=24s"
+                >Bring a Torch, Jeanette, Isabella</a
+              >
+              <a href="https://www.youtube.com/watch?v=BqzGZ5AaeSs#t=52s"
+                >Donna, Donna <i>Shalom Secunda</i></a
+              >
+              <a href="https://www.youtube.com/watch?v=wGfzmV8_teI#t=15s"
+                >Have You Met Miss Jones <i>Rodgers</i></a
+              >
+              <a href="https://www.youtube.com/watch?v=wlUn3gO1qBg#t=43s"
+                >Seven Steps to Heaven <i>Miles Davis</i></a
+              >
+            </td>
+          </tr>
+          <tr>
+            <th class="intervals_title">
+              <span>Minor 6th</span>
+            </th>
+            <td class="song-container">
+              <a href="https://www.youtube.com/watch?v=fPmruHc4S9Q#t=6s"
+                >The Entertainer <i>Scott Joplin</i></a
+              >
+              <a href="https://www.youtube.com/watch?v=Sv6dMFF_yts#t=60s"
+                >We Are Young <i>Fun</i></a
+              >
+              <a href="https://www.youtube.com/watch?v=YBcdt6DsLQA#t=0s"
+                >In My Life <i>The Beatles</i></a
+              >
+              <a href="https://www.youtube.com/watch?v=IfFi4Q7ueA8#t=0s"
+                >Slow Dancing in a Burning Room <i>John Mayer</i></a
+              >
+              <a href="https://www.youtube.com/watch?v=aasECsxrSzQ#t=9s"
+                >Last Midnight <i>Into the Woods</i></a
+              >
+              <a href="https://www.youtube.com/watch?v=k1-TrAvp_xs#t=11s"
+                >Requiem, Lacrimosa <i>Mozart</i></a
+              >
+              <a href="https://www.youtube.com/watch?v=NAOKzvL8dgk#t=165s"
+                >Nothing Compares 2 U <i>Sinéad O’Connor</i></a
+              >
+              <a href="https://www.youtube.com/watch?v=PUX23oYtwSM#t=9s"
+                >Go Down Moses</a
+              >
+              <a href="https://www.youtube.com/watch?v=C9r-0sL6jL0#t=4s"
+                >Waltz Op.64 No.2 <i>Chopin</i></a
+              >
+              <a href="https://www.youtube.com/watch?v=lQomFaLyQ5I#t=10s"
+                >She’s a Woman <i>The Beatles</i></a
+              >
+              <a href="https://www.youtube.com/watch?v=dATuiQ4GPP0#t=5s"
+                >Black Orpheus <i>Theme</i></a
+              >
+              <a href="https://www.youtube.com/watch?v=4RFEt7cGWzc#t=14s"
+                >Lonely man <i>he incredible Hulk</i></a
+              >
+              <a href="https://www.youtube.com/watch?v=WYeDsa4Tw0c#t=14s"
+                >1492 <i>Vangelis</i></a
+              >
+
+              <a
+                href="https://www.youtube.com/watch?v=MfYk6hO-k-Q&amp;feature=youtu.be&amp;t#t=12s"
+                >Shalom Aleichem <i>Itzhak Perlman</i></a
+              >
+              <a href="https://www.youtube.com/watch?v=9tjdswqGGVg#t=18s"
+                >The Last of the Mohicans – Promontory <i>Trevor Jones</i></a
+              >
+              <a href="https://www.youtube.com/watch?v=27b8wAp8nMg#t=6s"
+                >Morning of the carnival <i>Black Orfeus</i></a
+              >
+              <a href="https://www.youtube.com/watch?v=J-qoaioG2UA#t=0s"
+                >Tristan und Isolde – Prelude <i>Wagner</i></a
+              >
+            </td>
+            <td class="song-container">
+              <a href="https://www.youtube.com/watch?v=n0XguJCwIVc#t=35s"
+                >Call me maybe <i>Carly Rae Jepsen</i></a
+              >
+              <a href="https://www.youtube.com/watch?v=Y4cmPh2peBY#t=24s"
+                >Love Story <i>theme</i></a
+              >
+              <a href="https://www.youtube.com/watch?v=tR-qQcNT_fY#t=16s"
+                >100 Years <i>Five for Fighting</i></a
+              >
+              <a href="https://www.youtube.com/watch?v=Ja-Ags-Yx84#t=16s"
+                >Chega De Saudade <i>Tom Jobim</i></a
+              >
+              <a href="https://www.youtube.com/watch?v=rbynfCYDfuI#t=41s"
+                >You’re Everything <i>Chick Corea</i></a
+              >
+            </td>
+          </tr>
+          <tr>
+            <th class="intervals_title">
+              <span>Major 6th</span>
+            </th>
+            <td class="song-container">
+              <a href="https://www.youtube.com/watch?v=Hp_vkZkMQNU#t=10s"
+                >My Bonnie Lies over the Ocean</a
+              >
+              <a href="https://www.youtube.com/watch?v=UPeol7oEzrw#t=9s"
+                >Dashing Through the Snow <i>Jingle Bells</i></a
+              >
+              <a href="https://www.youtube.com/watch?v=fnWfNZc0EtY#t=0s"
+                >NBC Chimes</a
+              >
+              <a href="https://www.youtube.com/watch?v=6E2hYDIFDIU#t=6s"
+                >My way <i>Frank Sinatra</i></a
+              >
+              <a href="https://www.youtube.com/watch?v=lG-PpAZV35A#t=0s"
+                >Hush little baby <i>Lullaby</i></a
+              >
+              <a href="https://www.youtube.com/watch?v=UtkuZbcZORE#t=16s"
+                >Princess Leia’s Theme – Star Wars <i>John Williams</i></a
+              >
+              <a href="https://www.youtube.com/watch?v=kj3CHx3TDzw#t=0s"
+                >Nocturne Op.9 No. 2 <i>Chopin</i></a
+              >
+              <a href="https://www.youtube.com/watch?v=RXNdDq0b-4M#t=2s"
+                >For he’s a jolly good fellow</a
+              >
+              <a href="https://www.youtube.com/watch?v=qhK-zYfFsIY#t=34s"
+                >Take the A-Train</a
+              >
+              <a href="https://www.youtube.com/watch?v=6v5z0X-lwNE#t=17s"
+                >It came upon a midnight clear <i>Christmas</i></a
+              >
+              <a href="https://www.youtube.com/watch?v=dJm51jsRoo0#t=39s"
+                >You make me feel brand new <i>The Stylistics</i></a
+              >
+              <a href="https://www.youtube.com/watch?v=vi0TullZ-p4#t=32s"
+                >Days of Wine and Roses <i>Henri Mancini</i></a
+              >
+              <a href="https://www.youtube.com/watch?v=db-YdaD50zc#t=25s"
+                >Little Lamp <i>Gypsy</i></a
+              >
+            </td>
+            <td class="song-container">
+              <a href="https://www.youtube.com/watch?v=PivWY9wn5ps#t=67s"
+                >Man In the Mirror; chorus <i>Michael Jackson</i></a
+              >
+              <a href="https://www.youtube.com/watch?v=AL3lPVA8QKQ#t=29s"
+                >Nobody knows the trouble I’ve seen</a
+              >
+              <a href="https://www.youtube.com/watch?v=EPXPwRgV-NM#t=0s"
+                >The Music of the Night <i>Phantom of the Opera</i></a
+              >
+              <a href="https://www.youtube.com/watch?v=7MvtKy0tsBk#t=3s"
+                >Down By the Riverside – between "lay" and "down"</a
+              >
+              <a href="https://www.youtube.com/watch?v=wbggEGUaE28#t=66s"
+                >Over There <i>George Cohan</i></a
+              >
+              <a href="https://www.youtube.com/watch?v=b8XdcG9VRg0#t=27s"
+                >Il Etait un Petit Navire</a
+              >
+              <a href="https://www.youtube.com/watch?v=0QIG67VbE_w#t=18s"
+                >Weaver of dreams</a
+              >
+              <a href="https://www.youtube.com/watch?v=0-jzs-1Zv8M#t=4s"
+                >Sei du mein Trost K.391 <i>Mozart</i></a
+              >
+            </td>
+          </tr>
+          <tr>
+            <th class="intervals_title">
+              <span>Minor 7th</span>
+            </th>
+            <td class="song-container">
+              <a href="https://www.youtube.com/watch?v=92cwKCU8Z5c#t=127s"
+                >The Winner Takes It All <i>ABBA</i></a
+              >
+              <a href="https://www.youtube.com/watch?v=LIYNk4ARUR8#t=23s"
+                >Pure imagination – Chocolate Factory
+                <i>1st &amp; 3rd tones</i></a
+              >
+              <a href="https://www.youtube.com/watch?v=HtO2iC0KIQ8#t=67s"
+                >Somewhere <i>West side story</i></a
+              >
+              <a href="https://www.youtube.com/watch?v=hdjL8WXjlGI#t=30s"
+                >Star Trek theme <i>Original</i></a
+              >
+              <a href="https://www.youtube.com/watch?v=UbkqE4fpvdI#t=1s"
+                >Chamaleon <i>Herbie Hancock</i></a
+              >
+              <a href="https://www.youtube.com/watch?v=Gg9RyiPKhx8#t=0s"
+                >Steely Dan <i>Josie</i></a
+              >
+              <a href="https://www.youtube.com/watch?v=9IyJ3uoDMsg#t=8s"
+                >Star Trek theme <i>1rst and 3rd tones</i></a
+              >
+              <a href="https://www.youtube.com/watch?v=T_oE3qkbo5s#t=28s"
+                >No sé tú <i>Luis Miguel</i></a
+              >
+              <a href="https://www.youtube.com/watch?v=CZgQj2lFirs#t=24s"
+                >Maman les Petits Bateaux</a
+              >
+            </td>
+            <td class="song-container">
+              <a href="https://www.youtube.com/watch?v=oP-vD4ScAGA#t=15s"
+                >Watermelon man</a
+              >
+              <a href="https://www.youtube.com/watch?v=GMT6Kj3S3-I#t=48s"
+                >Lady Jane <i>Rolling Stones</i></a
+              >
+              <a href="https://www.youtube.com/watch?v=MWzlivSzpJM#t=0s"
+                >An American in Paris <i>Gershwin</i></a
+              >
+              <a href="https://www.youtube.com/watch?v=5HEQqtoAwjY#t=22s"
+                >None but the Lonely Heart <i>Tchaikovsky</i></a
+              >
+              <a href="https://www.youtube.com/watch?v=eHar9ni7z2I#t=32s"
+                >The Shadow of your Smile <i>Ella Fitzgerald</i></a
+              >
+            </td>
+          </tr>
+          <tr>
+            <th class="intervals_title">
+              <span>Major 7th</span>
+            </th>
+            <td class="song-container">
+              <a href="https://www.youtube.com/watch?v=djV11Xbc914#t=53s"
+                >Take on Me <i>A-Ha</i></a
+              >
+              <a href="https://www.youtube.com/watch?v=-V2yTD1FV4Y#t=40s"
+                >Somewhere over the Rainbow <i>Wizard of Oz</i> *1st and 3rd
+                pitch</a
+              >
+              <a href="https://www.youtube.com/watch?v=e9vrfEoc8_g#t=51s"
+                >Superman theme</a
+              >
+              <a href="https://www.youtube.com/watch?v=tO4dxvguQDk#t=10s"
+                >Don’t Know Why <i>Norah Jones</i></a
+              >
+              <a href="https://www.youtube.com/watch?v=X69if5C3i9o&amp;t#t=190s"
+                >Superman theme</a
+              >
+              <a href="https://www.youtube.com/watch?v=81NROmUb7o0#t=42s"
+                >Bali Hai <i>South Pacific</i> *1st and 3rd pitch</a
+              >
+              <a href="https://www.youtube.com/watch?v=1x_QbVDlLbI#t=5s"
+                >Fantasy Island <i>main theme</i></a
+              >
+              <a href="https://www.youtube.com/watch?v=RNc45FTenhg#t=7s"
+                >Popular <i>Nada Surf</i></a
+              >
+              <a href="https://www.youtube.com/watch?v=RZeLaY3Vp54#t=1355s"
+                >Danse n. VII <i>Mompou</i></a
+              >
+            </td>
+            <td class="song-container">
+              <a href="https://www.youtube.com/watch?v=WuLmjCNl44Q#t=11s"
+                >I Love You <i>Cole Porter</i></a
+              >
+
+              <a
+                href="https://www.youtube.com/watch?v=https://youtu.be/DJZL5qmyBIY#t=0s"
+                >Pictures at an Exhibition, Mvt. 9 <i>Moussorgsky</i></a
+              >
+              <a href="https://www.youtube.com/watch?v=lfksYyxGRJw#t=0s"
+                >Von <i>Zankyou No Terror</i></a
+              >
+            </td>
+          </tr>
+          <tr>
+            <th class="intervals_title">
+              <span>Octave</span>
+            </th>
+            <td class="song-container">
+              <a href="https://www.youtube.com/watch?v=-V2yTD1FV4Y#t=40s"
+                >Somewhere over the Rainbow <i>Wizard of Oz</i></a
+              >
+              <a href="https://www.youtube.com/watch?v=D1ZYhVpdXbQ#t=66s"
+                >Singin’ in the Rain</a
+              >
+              <a href="https://www.youtube.com/watch?v=1w7OgIMMRc4#t=0s"
+                >Sweet Child O’ Mine <i>Guns N’ Roses</i></a
+              >
+              <a href="https://www.youtube.com/watch?v=M-b3iU-INDo#t=20s"
+                >Let it snow <i>Christmas</i></a
+              >
+              <a href="https://www.youtube.com/watch?v=iClEaJz_A0A#t=0s"
+                >Harry’s Wondrous World – Harry Potter <i>John Williams</i></a
+              >
+
+              <a
+                href="https://www.youtube.com/watch?v=nNTlv5lwQsY&amp;feature=youtu.be#t=14s"
+                >Bring him home <i>Les Misérables</i></a
+              >
+              <a href="https://www.youtube.com/watch?v=hwacxSnc4tI#t=17s"
+                >The Christmas Song</a
+              >
+              <a href="https://www.youtube.com/watch?v=U7eOs5lERww#t=12s"
+                >Blue bossa</a
+              >
+              <a href="https://www.youtube.com/watch?v=hnVldyHRcjU#t=80s"
+                >A Forest <i>The Cure</i></a
+              >
+              <a href="https://www.youtube.com/watch?v=gRo0NlLYvwE#t=14s"
+                >The Lonely Goatherd <i>The Sound of Music</i></a
+              >
+              <a href="https://www.youtube.com/watch?v=PIiQMsDQ0Uo#t=22s"
+                >There’s no business like show business <i>Ethel Merman</i></a
+              >
+              <a href="https://www.youtube.com/watch?v=81NROmUb7o0#t=42s"
+                >Bali Ha’I <i>South Pacific</i></a
+              >
+            </td>
+            <td class="song-container">
+              <a href="https://www.youtube.com/watch?v=gRo0NlLYvwE#t=13s"
+                >The Lonely Goatherd <i>The Sound of Music</i></a
+              >
+              <a href="https://www.youtube.com/watch?v=9KyIEe1B450#t=73s"
+                >Willow Weep for Me</a
+              >
+              <a href="https://www.youtube.com/watch?v=mpI7EjUOkvg#t=14s"
+                >Acapulco 1922 <i>Herb alpert</i></a
+              >
+              <a href="https://www.youtube.com/watch?v=wHGUYsouCSg#t=4s"
+                >Kong Kristian stod ved højen mast *2nd and 3rd</a
+              >
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <span class="bigbtn" @click="toggle">🔼🔽</span>
+
+    </main>
+
+    <script>
+      new Vue({
+        el: '#App',
+        data() {
+          return {
+            state: true,
+          };
+        },
+        methods: {
+          toggle() {
+            this.state = !this.state;
+          },
+          readstate() {
+            return this.state ? 'ascending' : 'descending';
+          },
+        },
+      });
+    </script>
+
+</body>
+</html>
