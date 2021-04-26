@@ -9,11 +9,8 @@ window.Footer = new Vue({
     `<footer>
       <nav>
         <a class="code" href="/">home</a>
-        |
         <a class="code" href="/resume.html">resume</a>
-        |
-        <a class="code" href="/make-a-note.html">midi</a>
-        |
+        <a class="code" href="/midicalc">midicalc</a>
         <a class="code" href="/earmastery">intervals</a>
       </nav>
       <p class="stack">stack</p>
