@@ -3,15 +3,25 @@ html {
 }
 
 body {
-  background-attachment: fixed;
-  background-image: url("./images/bkgr.png");
-  background-position: bottom;
-  background-repeat: no-repeat;
-  background-size: cover;
-
   font-family: serif;
   font-size: large;
   margin: 0;
+}
+body::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  height: 100vh;
+  left: 0;
+  right: 0;
+  /* width: 100vw; */
+  z-index: -1;
+
+  /* background-attachment: fixed; kills mobile */
+  background-image: url('./images/bkgr.png');
+  background-position: bottom;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 a {
@@ -63,13 +73,13 @@ footer {
 }
 footer .stack {
   color: black;
-  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   font-weight: 800;
   margin: 1rem;
   text-shadow: 1px 2px 3px white;
 }
 footer .stack::before {
-  content: "🎸";
+  content: '🎸';
   font-size: 1.3rem;
 }
 footer pre {
