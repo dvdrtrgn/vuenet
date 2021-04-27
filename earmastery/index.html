@@ -3,15 +3,30 @@
   <head>
     <meta charset="UTF-8" />
     <title>Interval Helpers</title>
-    <meta name="viewport" content="width=device-width, maximum-scale=1, minimum-scale=1" />
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta
+      name="viewport"
+      content="width=device-width, maximum-scale=1, minimum-scale=1"
+    />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
 
-    <link rel="stylesheet" href="../base.css">
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="../base.css" />
+    <link rel="stylesheet" href="./style.css" />
   </head>
 
   <body>
     <main id="App" :class="readstate()">
+      <div id="Viewer" v-if="vlink" @click="vlink = 0">
+        <iframe
+          title="YouTube video player"
+          :src="vlink"
+          width="560"
+          height="315"
+          frameborder="0"
+          allowfullscreen
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        >
+        </iframe>
+      </div>
 
       <span class="bigbtn" @click="toggle">🔼🔽</span>
 
@@ -1099,17 +1114,36 @@
           </tr>
         </tbody>
       </table>
-
     </main>
 
     <script type="module">
       import 'https://unpkg.com/vue@2.6.12';
 
-      new Vue({
+      const Util = {
+        vlinkData(ele) {
+          let arr = ele.href.match(/.+\/watch\?v=([^\/]+)#t=(\d+)s$/);
+          if (arr) {
+            ele.dataset.vlink = `https://www.youtube.com/embed/${arr[1]}?start=${arr[2]}s`;
+          }
+          return ele;
+        },
+        trigger_Vlink(evt) {
+          evt.preventDefault();
+          App.vlink = this.dataset.vlink;
+        },
+        transformLink(ele) {
+          Util.vlinkData(ele);
+          ele.addEventListener('click', Util.trigger_Vlink);
+        },
+      };
+
+      const App = new Vue({
         el: '#App',
         data() {
           return {
             state: true,
+            vlink: '',
+            test: 'https://www.youtube.com/embed/0C2uMJUNlws',
           };
         },
         methods: {
@@ -1121,13 +1155,12 @@
           },
         },
         mounted() {
-          let links = this.$el.querySelectorAll('a');
-          links.forEach(e => e.setAttribute('target','YouTube'));
+          this.$el.querySelectorAll('a').forEach(Util.transformLink);
         },
+        computed: {},
       });
     </script>
 
-  <script id="Footer" src="../scripts/footer.js" type="module"></script>
-
-</body>
+    <script id="Footer" src="../scripts/footer.js" type="module"></script>
+  </body>
 </html>
