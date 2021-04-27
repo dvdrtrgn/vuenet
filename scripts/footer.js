@@ -1,6 +1,6 @@
 /* global Vue, */
 //
-import 'https://unpkg.com/vue';
+import 'https://unpkg.com/vue@2.6.12';
 
 window.Footer = new Vue({
   el: '#Footer',

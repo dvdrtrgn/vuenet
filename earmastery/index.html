@@ -3,12 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <title>Interval Helpers</title>
-    <base target="_blank" />
     <meta name="viewport" content="width=device-width, maximum-scale=1, minimum-scale=1" />
     <meta http-equiv="x-ua-compatible" content="ie=edge">
 
     <link rel="stylesheet" href="../base.css">
-    <script src="https://unpkg.com/vue"></script>
     <link rel="stylesheet" href="./style.css">
   </head>
 
@@ -20,7 +18,7 @@
       <table>
         <thead>
           <tr @click="toggle">
-            <th>Step</th>
+            <th>Steps</th>
             <th>Ascending</th>
             <th>Descending</th>
           </tr>
@@ -1104,7 +1102,9 @@
 
     </main>
 
-    <script>
+    <script type="module">
+      import 'https://unpkg.com/vue@2.6.12';
+
       new Vue({
         el: '#App',
         data() {
@@ -1119,6 +1119,10 @@
           readstate() {
             return this.state ? 'ascending' : 'descending';
           },
+        },
+        mounted() {
+          let links = this.$el.querySelectorAll('a');
+          links.forEach(e => e.setAttribute('target','YouTube'));
         },
       });
     </script>

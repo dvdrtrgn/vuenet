@@ -28,7 +28,7 @@ main {
     color: steelblue;
     display: block;
     line-height: 1.2;
-    margin: var(--small);
+    margin: var(--small) 0;
     padding: var(--small) calc(2 * var(--small));
     text-decoration: none;
   }
@@ -99,8 +99,9 @@ main {
 
     thead th {
       background-color: var(--dark);
-      padding: 1rem;
+      padding: 1rem 0 1rem 1rem;
       position: sticky;
+      text-align: left;
       top: 0;
       z-index: 2;
     }

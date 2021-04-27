@@ -1,13 +1,14 @@
 html {
+  height: 100vh;
+}
+
+body {
   background-attachment: fixed;
   background-image: url("./images/bkgr.png");
   background-position: bottom;
   background-repeat: no-repeat;
   background-size: cover;
-  height: 100vh;
-}
 
-body {
   font-family: serif;
   font-size: large;
   margin: 0;
@@ -33,7 +34,9 @@ a:focus {
 .code {
   background: rgba(170, 231, 255, 0.4);
   border-radius: 0.25rem;
+  box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.2);
   border: 1px solid white;
+  border-bottom-width: 2px;
   display: inline-block;
   font-family: monospace, serif;
   margin: auto;
@@ -70,7 +73,7 @@ footer .stack::before {
   font-size: 1.3rem;
 }
 footer pre {
-  background: rgba(255, 255, 255, 0.4);
+  background: rgba(255, 255, 255, 0.6);
   border-radius: 0.25rem;
   margin: 0;
 }
