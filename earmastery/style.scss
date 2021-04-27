@@ -15,11 +15,10 @@ main {
   --lite: #fff;
   --small: 0.5rem;
 
-  box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.5);
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   line-height: 1;
-  margin: 0;
   position: relative;
+  transform: scale(1);
   z-index: 1;
 
   a {
@@ -44,24 +43,26 @@ main {
   }
 
   .intervals_title {
-    top: calc(1rem + 2 * var(--small));
+    vertical-align: middle;
+    white-space: nowrap;
 
     span {
       font-size: 1.5rem;
-      padding: 1rem;
       transform: rotate(180deg);
       writing-mode: vertical-lr;
     }
   }
 
   .bigbtn {
-    bottom: 0;
-    text-shadow: 0 0 2rem gray;
     cursor: pointer;
-    font-size: 2rem;
-    left: 0;
-    margin: 1rem;
-    position: fixed;
+    display: block;
+    font-size: 1.5rem;
+    line-height: 0;
+    margin: 0;
+    padding-right: var(--small);
+    position: sticky;
+    text-align: right;
+    top: 1.5rem;
     z-index: 3;
   }
 
@@ -75,11 +76,11 @@ main {
 
   table {
     border-collapse: collapse;
+    box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.5);
     position: relative;
     width: 100%;
 
-    tr:nth-child(even) td,
-    tr:nth-child(even) th {
+    tr:nth-child(even) > * {
       background-color: var(--dark);
     }
 
@@ -96,16 +97,13 @@ main {
       vertical-align: top;
     }
 
-    th {
-      position: sticky;
-      top: 0;
-      z-index: 1;
-    }
-
     thead th {
       background-color: var(--dark);
       padding: 1rem;
+      position: sticky;
+      top: 0;
       z-index: 2;
     }
+
   }
 }

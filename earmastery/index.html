@@ -14,6 +14,9 @@
 
   <body>
     <main id="App" :class="readstate()">
+
+      <span class="bigbtn" @click="toggle">🔼🔽</span>
+
       <table>
         <thead>
           <tr @click="toggle">
@@ -1098,8 +1101,6 @@
           </tr>
         </tbody>
       </table>
-
-      <span class="bigbtn" @click="toggle">🔼🔽</span>
 
     </main>
 
