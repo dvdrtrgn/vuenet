@@ -5,28 +5,30 @@ import 'https://unpkg.com/vue@2.6.12';
 window.Footer = new Vue({
   el: '#Footer',
   components: {},
-  template: // html
-    `<footer>
+  template: /* html */ `
+    <footer>
       <nav>
-        <a class="code" href="/">home</a>
-        <a class="code" href="/resume.html">resume</a>
-        <a class="code" href="/midicalc">midicalc</a>
-        <a class="code" href="/earmastery">intervals</a>
+        <a class="btn" href="/">top</a>
+        <a class="btn" href="/resume.html">resume</a>
+        <a class="btn" href="/midicalc">midicalc</a>
+        <a class="btn" href="/earmastery">intervals</a>
       </nav>
-      <p class="stack">stack</p>
-      <a class="code" href="https://vuejs.org/">vuejs.org</a>
-      <a class="code" href="https://www.netlify.com">netlify.com</a>
-      <a class="code" href="https://developer.mozilla.org">developer.mozilla.org</a>
-      <br><br>
-      <pre>{{ loc }}</pre>
+
+      <nav>
+        <a class="" href="https://vuejs.org">vuejs</a> ÷
+        <a class="" href="https://www.netlify.com">netlify</a> ÷
+        <a class="" href="https://developer.mozilla.org">mozilla</a> ÷
+        <a class="btn" href="https://github.com/dvdrtrgn">github</a>
+      </nav>
+
+      <a class="stack" href="https://deploy-preview-1--dvdrtrgn.netlify.app/">jamstack</a>
+      <pre class="loc">{{ loc }}</pre>
     </footer>`,
-  data: {
-  },
-  methods: {
-  },
+  data: {},
+  methods: {},
   computed: {
     loc() {
-      return window.location.href;
+      return window.location.href.replace(/http.*:\/\//, '').replace('.html', '');
     },
   },
 });
