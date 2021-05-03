@@ -12,6 +12,7 @@ window.Footer = new Vue({
         <a class="btn" href="/resume.html">resume</a>
         <a class="btn" href="/midicalc">midicalc</a>
         <a class="btn" href="/earmastery">intervals</a>
+        <a class="btn" href="/contactme">contact</a>
       </nav>
 
       <nav>
