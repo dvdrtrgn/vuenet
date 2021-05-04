@@ -15,32 +15,30 @@
   <main id="App">
     <h2>Contact Me</h2>
 
-    <form>
+    <form @submit.prevent="listener()">
       <label>
-        <input name="name" type="text" placeholder="Your Name" required>
+        <input v-model="senderName" name="name" type="text" placeholder="Your Name" required>
       </label>
       <label>
-        <input name="email" type="email" placeholder="Your Email">
+        <input v-model="senderEmail" name="email" type="email" placeholder="Your Email">
       </label>
       <label>
-        <textarea name="message" placeholder="Message" required></textarea>
+        <textarea v-model="message" name="message" placeholder="Message" required></textarea>
       </label>
 
       <input type="submit">
     </form>
 
     <div>
-      <p id="Result">...</p>
+      <p id="Result">{{ result }}</p>
     </div>
 
-    <script src="./mailer.js"></script>
   </main>
 
-  <script type="module">
-    // import 'https://unpkg.com/vue@2.6.12';
-  </script>
+  <script type="module" src="./mailer.js"></script>
 
   <script id="Footer" src="../scripts/footer.js" type="module"></script>
+
 </body>
 
 </html>
