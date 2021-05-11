@@ -28,14 +28,17 @@
         </iframe>
       </div>
 
-      <span class="bigbtn" @click="toggle">🔼🔽</span>
+      <span class="bigbtn" @click="toggle">
+        <span v-show="state">🔼</span>
+        <span v-show="!state">🔽</span>
+      </span>
 
       <table>
         <thead>
-          <tr @click="toggle">
+          <tr class="click" @click="toggle">
             <th>Steps</th>
-            <th>Ascending</th>
-            <th>Descending</th>
+            <th>Ascending Intervals</th>
+            <th>Descending Intervals</th>
           </tr>
         </thead>
         <tbody>
@@ -1116,51 +1119,7 @@
       </table>
     </main>
 
-    <script type="module">
-      import 'https://unpkg.com/vue@2.6.12';
-
-      const Util = {
-        vlinkData(ele) {
-          let arr = ele.href.match(/.+\/watch\?v=([^\/]+)#t=(\d+)s$/);
-          if (arr) {
-            ele.dataset.vlink = `https://www.youtube.com/embed/${arr[1]}?start=${arr[2]}s`;
-          }
-          return ele;
-        },
-        trigger_Vlink(evt) {
-          evt.preventDefault();
-          App.vlink = this.dataset.vlink;
-        },
-        transformLink(ele) {
-          Util.vlinkData(ele);
-          ele.addEventListener('click', Util.trigger_Vlink);
-        },
-      };
-
-      const App = new Vue({
-        el: '#App',
-        name: 'Intervals',
-        data() {
-          return {
-            state: true,
-            vlink: '',
-            test: 'https://www.youtube.com/embed/0C2uMJUNlws',
-          };
-        },
-        methods: {
-          toggle() {
-            this.state = !this.state;
-          },
-          readstate() {
-            return this.state ? 'ascending' : 'descending';
-          },
-        },
-        mounted() {
-          this.$el.querySelectorAll('a').forEach(Util.transformLink);
-        },
-        computed: {},
-      });
-    </script>
+    <script type="module" src="main.js"></script>
 
     <script id="Footer" src="../scripts/footer.js" type="module"></script>
   </body>
