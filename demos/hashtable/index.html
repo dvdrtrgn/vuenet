@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../demos.css">
+  <title>Testing Hashtable Class</title>
+  <style></style>
+</head>
+
+<body>
+  <h1>Testing Hashtable Class</h1>
+  <p>
+    <a href="./Hashtable.mjs">Hashtable.mjs</a>
+    works with any key that isn’t
+    <code>null/NaN/void</code>.
+    <br>
+    <i>See <code>`foo`</code> in console...</i>
+  </p>
+  <pre id="Code">dump script</pre>
+
+  <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes">Reference/Classes</a>
+
+  <script type="module" id="Test">
+    import Hashtable from './Hashtable.mjs'
+
+    console.log(window.foo = new Hashtable())
+
+    foo.set(window, window)
+    foo.set(null, null)
+    foo.set(NaN, NaN)
+    foo.set(undefined, undefined)
+
+    foo.set(4, 'four')
+    console.assert(foo.get(4) === 'four', '4 is four')
+    foo.set('4', 'Four')
+    console.assert(foo.get('4') === 'Four', '"4" is Four')
+    console.assert(foo.size === 3, 'size 3')
+
+    foo.set('4', 'Four!')
+    console.assert(foo.get('4') === 'Four!', '"4" is Four!')
+
+    console.assert(foo.remove(window), 'remove window')
+    console.assert(foo.size === 2, 'size 2')
+
+    foo.set(Hashtable, Hashtable)
+    foo.set(0, 0)
+    foo.set(false, false)
+    foo.set('', '')
+    foo.set({}, [])
+    foo.set([], {})
+    foo.display()
+
+    foo.remove(Hashtable)
+    foo.remove(0)
+    foo.remove(false)
+    foo.remove('')
+    foo.display()
+
+    foo.dir()
+  </script>
+
+  <script>
+    const $ = document.querySelector.bind(document);
+
+    $('#Code').textContent = $('#Test').textContent;
+  </script>
+
+  <script id="Tnav" type="module" src='../Tnav.js'></script>
+</body>
+
+</html>

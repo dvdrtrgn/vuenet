@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../demos.css">
+  <title>Testing Promise vs Await</title>
+  <style></style>
+</head>
+
+<body>
+  <h1>Testing Promise vs Await</h1>
+  <p>Which is easier to read?</p>
+  <p>
+    <a href="./util.mjs">util.mjs</a> helper functions
+    <code>mockReq, procReq, que</code>.
+    <br>
+    <i>See console...</i>
+  </p>
+  <pre id="Code">dump script</pre>
+
+  <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise"
+    target="_blank">Reference/Global_Objects/Promise</a>
+  /
+  <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/await"
+    target="_blank">Reference/Operators/await</a>
+
+  <script type="module" id="Test">
+    import U from './util.mjs';
+
+    function testPromise(sitename = 'Google') {
+      return U.mockReq(sitename)
+        .then((reply) => {
+          console.log(`Reply from ${sitename}: "${reply}"`);
+          return U.procReq(reply);
+        })
+        .then(console.log) // reply2
+        .catch(console.warn);
+    };
+
+    async function testAwait(sitename = 'Google') {
+      try {
+        let reply = await U.mockReq(sitename);
+        console.log(`Reply from ${sitename}: "${reply}"`);
+
+        console.log(await U.procReq(reply)); // reply2
+      } catch (err) {
+        console.warn(err);
+      }
+    };
+
+    U.que({
+      title: 'test PROMISE',
+      wait: 1,
+      cb: function () {
+        testPromise('Facebook');
+        testPromise('Google');
+      },
+    });
+
+    U.que({
+      title: 'test AWAIT',
+      wait: 3,
+      cb: function () {
+        testAwait('Facebook');
+        testAwait('Google');
+      },
+    });
+
+  </script>
+
+  <script>
+    const $ = document.querySelector.bind(document);
+
+    $('#Code').textContent = $('#Test').textContent;
+  </script>
+
+  <script id="Tnav" type="module" src='../Tnav.js'></script>
+</body>
+
+</html>

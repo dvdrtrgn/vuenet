@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Testing Natural Logarithm</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../demos.css">
+  <style>
+    input { width: 5em; }
+    .neg { color: red; }
+    .value { color: green; }
+    .symbol {
+      font-weight: bolder;
+      font-style: italic;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Testing Natural Logarithm</h1>
+
+  <main id="LogE" class="component">
+    <legend @click="Clog">LogE</legend>
+
+    <SYM>e</SYM> = <VAL :val="e" fix=7></VAL>
+    <br> periods <input v-model.number="periods">
+    <br> growth <input v-model.number="growth"> ({{ percent }})
+    <br>
+    <SYM>t</SYM> = {{ t }} (periods of time)
+    <br>
+    <SYM>r</SYM> = <VAL :val="r" fix=3></VAL> growth / periods (rate)
+    <br>
+    <SYM>rt</SYM> = <VAL :val="rt" fix=3></VAL> (growth / periods * periods)
+
+    <hr>
+    <br>
+    ( base + <sup>{{ percent }}</sup>/<span>{{ periods }}</span>)<sup>{{ periods }}</sup>
+    = <VAL :val="result" fix=7></VAL>
+    <br> compare to <SYM>e</SYM>
+    <VAL :val="diff" fix=3></VAL> ∆
+
+    <hr>
+
+    <SYM>e<sup>rt={{ rt }}</sup></SYM>
+    <br>
+    <VAL :val="result2"></VAL>
+    <br>
+    base <input v-model.number="base"> <span v-if="base === 1">(compound)</span>
+
+  </main>
+
+  <script id="App" type="module" src='./App.js'></script>
+  <script id="Tnav" type="module" src='../Tnav.js'></script>
+</body>
+
+</html>

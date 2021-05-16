@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Binary Search Tree busybox</title>
+  <link rel="stylesheet" href="../demos.css">
+  <link rel="stylesheet" href="./styles.css">
+</head>
+
+<body>
+  <h1>Binary Search Tree busybox</h1>
+
+  <section id="Vtree">
+
+    <div class="controls">
+      <label> Style
+        <select v-model="display_style">
+          <option v-for="style in styles">{{ style }}</option>
+        </select>
+      </label>
+
+      <label> Mock Data
+        <select v-model="mock_choice" @change="chooseTree">
+          <option v-for="key in mocks">{{ key }}</option>
+        </select>
+      </label>
+
+      <label> Insert Number
+        <input v-model.number="value" @change="insert" size="3">
+        <button @click="addRando">Rando</button>
+      </label>
+
+      <button @click="balanceTree">Balance</button>
+    </div>
+
+    <div class="tree" :class="display_style">
+      <div class="row" v-for="row in table">
+        <span class="cell" v-for="cell in row">{{ cell == null ? ' ' : cell }}</span>
+      </div>
+    </div>
+
+  </section>
+
+  <table>
+    <tr>
+      <td><pre id="A"></pre></td>
+      <td><pre id="B"></pre></td>
+      <td><pre id="C"></pre></td>
+    </tr>
+  </table>
+
+  <script src="./main.js" type="module"></script>
+
+  <script id="Tnav" type="module" src='../Tnav.js'></script>
+</body>
+
+</html>

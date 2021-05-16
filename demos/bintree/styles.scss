@@ -1,0 +1,54 @@
+$base: 1rem;
+
+td {
+  border: 1px solid silver;
+  padding: 1rem;
+  vertical-align: top;
+  width: 33%;
+}
+
+label {
+  // border: 1px solid red;
+  display: inline-block;
+  padding: ($base / 6) ($base / 2);
+}
+
+table {
+  margin: 1rem auto;
+}
+
+.tree {
+  font-family: 'Arial Narrow', monospace;
+  font-size: $base;
+  text-align: center;
+
+  .cell {
+    border: 1px solid silver;
+    box-sizing: border-box;
+    display: inline-block;
+    min-width: $base;
+
+    &:nth-of-type(even) {
+      color: red;
+    }
+  }
+
+  .row {
+    &:nth-of-type(odd) {
+      background-color: #eee;
+    }
+  }
+
+  &.wide .row {
+    &:nth-child(1) .cell { width: (100% / 1); }
+    &:nth-child(2) .cell { width: (100% / 2); }
+    &:nth-child(3) .cell { width: (100% / 4); }
+    &:nth-child(4) .cell { width: (100% / 8); }
+    &:nth-child(5) .cell { width: (100% / 16); }
+    &:nth-child(6) .cell { width: (100% / 32); }
+    &:nth-child(7) .cell { width: (100% / 64); }
+    &:nth-child(8) .cell { width: (100% / 128); }
+  }
+
+  //.tree
+}

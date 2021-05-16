@@ -1,0 +1,40 @@
+
+footer {
+  bottom: 0;
+  font-size: 0.8em;
+  height: 30vh;
+  line-height: 1.8;
+  margin-top: 1rem;
+  position: fixed;
+  text-align: center;
+  width: 100%;
+
+  .stack {
+    color: $dark;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: 800;
+    margin: 0.5rem;
+    border: 0;
+    text-shadow: 1px 2px 3px $lite;
+
+    &::before {
+      content: '🎸';
+      font-size: 1.3rem;
+    }
+  }
+  .loc {
+    background: $ghost;
+    bottom: 0;
+    border-radius: 0.25rem;
+    margin: 0;
+    position: absolute;
+    width: 100%;
+  }
+}
+
+@media (max-height: 30rem) {
+  footer {
+    height: 15rem;
+    position: relative;
+  }
+}
