@@ -1,4 +1,4 @@
-const template = /*html*/ `
+const template = /* html */ `
 <span class="symbol"><slot>?</slot></span>`;
 
 export default {

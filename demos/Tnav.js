@@ -1,10 +1,12 @@
+/* global Vue, */
+
 import 'https://unpkg.com/vue@2';
 import pages from './pages.js';
 
 const name = 'Tnav';
 const dirs = /(?<=\/)([^/]+)(?=\/)/g;
 
-const template = /*html*/ `
+const template = /* html */ `
 <nav id="Tnav">
   <a :href="prev">⬅️</a>
   <a :href="up">⬆️</a>
@@ -13,13 +15,13 @@ const template = /*html*/ `
 
 export default window[name] = new Vue({
   name,
-  el: '#' + name,
+  el: `#${name}`,
   template,
   data() {
     return {
       pages,
       count: pages.length,
-      path: location.pathname.match(dirs),
+      path: window.location.pathname.match(dirs),
     };
   },
   computed: {
@@ -30,11 +32,11 @@ export default window[name] = new Vue({
       return this.pages.indexOf(this.myloc);
     },
     prevnum() {
-      let num = this.mynum - 1;
+      const num = this.mynum - 1;
       return num < 0 ? num + this.count : num;
     },
     nextnum() {
-      let num = this.mynum + 1;
+      const num = this.mynum + 1;
       return num < this.count ? num : num - this.count;
     },
     prev() {

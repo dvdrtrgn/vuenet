@@ -1,13 +1,14 @@
-const name = 'LogE';
+/* global Vue, */
 
 import 'https://unpkg.com/vue@2';
 import Sym from './Sym.js';
 import Val from './Val.js';
 
+const name = 'LogE';
+
 const App = new Vue({
   name,
   el: `#${name}`,
-  components: {},
   data() {
     return {
       message: '',
@@ -18,7 +19,7 @@ const App = new Vue({
   },
   methods: {
     Clog() {
-      console.log(name + '.Clog: ', this.message);
+      console.log(`${name}.Clog:`, this.message);
     },
   },
   components: {
@@ -48,7 +49,9 @@ const App = new Vue({
       return this.r * this.t;
     },
     percent() {
-      return (this.growth * 100).toFixed(2) + '%';
+      return `${(this.growth * 100).toFixed(2)}%`;
     },
   },
 });
+
+export default App;

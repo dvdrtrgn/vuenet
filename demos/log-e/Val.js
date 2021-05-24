@@ -1,4 +1,4 @@
-const template = /*html*/ `
+const template = /* html */ `
 <span class="value" :class="{ neg: Number(value) < 0 }">{{ value }}</span>`;
 
 export default {
@@ -10,7 +10,7 @@ export default {
   },
   computed: {
     value() {
-      let fixed = this.val.toFixed(this.fix);
+      const fixed = this.val.toFixed(this.fix);
       return this.fix ? fixed : this.val;
     },
   },

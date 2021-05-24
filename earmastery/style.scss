@@ -3,13 +3,6 @@ body {
   padding-bottom: 25rem;
 }
 
-main {
-  // base overrides
-  height: unset;
-  overflow: unset;
-  padding: 0;
-}
-
 .click {
   cursor: pointer;
 }
@@ -41,6 +34,10 @@ main {
   position: relative;
   transform: scale(1);
   z-index: 1;
+  // base overrides
+  height: unset;
+  overflow: unset;
+  padding: 0;
 
   a {
     background-color: var(--lite);

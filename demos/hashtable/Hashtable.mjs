@@ -9,13 +9,16 @@ const getpos = (obj, key) => obj[π].keys.indexOf(key);
 
 const couple = (obj, i) => [obj[π].keys[i], obj[π].vals[i]];
 
-const nullify = (obj, i) => (obj[π].keys[i] = obj[π].vals[i] = null);
+const nullify = (obj, i) => {
+  // eslint-disable-next-line no-param-reassign
+  obj[π].keys[i] = null; obj[π].vals[i] = null;
+};
 
 function mergeAll(obj) {
   const arr = [];
 
   obj[π].keys.forEach((e, i) => {
-    !nothing(e) && arr.push(couple(obj, i));
+    if (!nothing(e)) arr.push(couple(obj, i));
   });
 
   return arr;
@@ -30,7 +33,7 @@ class Hashtable {
   }
 
   has(key) {
-    return Boolean(~getpos(this, key));
+    return Boolean(1 + getpos(this, key));
   }
 
   get(key) {
@@ -53,12 +56,12 @@ class Hashtable {
   remove(key) {
     const pos = getpos(this, key);
 
-    if (~pos) {
+    if (1 + pos) {
       nullify(this, pos);
       this[π].size -= 1;
     }
 
-    return Boolean(~pos);
+    return Boolean(1 + pos);
   }
 
   get size() {
