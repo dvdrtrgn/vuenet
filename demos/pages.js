@@ -1,1 +1,1 @@
-export default ['async', 'bintree', 'hashtable', 'log-e'];
+export default ['async', 'bintree', 'hashtable', 'log-e', 'reactive'];

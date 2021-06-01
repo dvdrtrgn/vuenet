@@ -13,6 +13,12 @@ const template = /* html */ `
   <a :href="next">➡️</a>
 </nav>`;
 
+const doc = document.scrollingElement;
+const god = window;
+
+const scrollReach = () => Math.ceil(god.scrollY + god.innerHeight);
+const rockBottom = () => doc.offsetHeight <= scrollReach();
+
 export default window[name] = new Vue({
   name,
   el: `#${name}`,
@@ -23,6 +29,11 @@ export default window[name] = new Vue({
       count: pages.length,
       path: window.location.pathname.match(dirs),
     };
+  },
+  methods: {
+    shy() {
+      if (!rockBottom()) this.$el.style.bottom = '';
+    },
   },
   computed: {
     myloc() {
@@ -48,5 +59,20 @@ export default window[name] = new Vue({
     up() {
       return '../';
     },
+  },
+  mounted() {
+    let timeout = null;
+    let lastpos = scrollReach();
+    const readtheroom = () => {
+      if (scrollReach() >= lastpos) {
+        this.$el.style.bottom = '-1rem';
+        god.clearTimeout(timeout);
+      }
+      timeout = god.setTimeout(this.shy, 333);
+      lastpos = scrollReach();
+    };
+
+    readtheroom();
+    god.addEventListener('scroll', readtheroom);
   },
 });
