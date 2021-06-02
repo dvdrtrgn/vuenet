@@ -1,0 +1,5 @@
+# www.robotstxt.org/
+
+# Do not index samples as actual content
+User-agent: *
+Disallow: /samples/*/*
