@@ -1,0 +1,29 @@
+<svg
+  version="1.1"
+  xmlns="http://www.w3.org/2000/svg"
+  xmlns:xlink="http://www.w3.org/1999/xlink"
+  x="0px"
+  y="0px"
+  width="400px"
+  height="200px"
+  viewBox="0 0 400 200"
+  style="enable-background:new 0 0 400 200;"
+  xml:space="preserve">
+  <style type="text/css">
+    .white {
+      fill: #FFFFFF;
+    }
+    .grey {
+      fill: #999999;
+    }
+  </style>
+  <rect class="none" width="400" height="200"/>
+  <g>
+    <path
+      class="white"
+      d="M378.7,201.3c0-98.6-80-178.6-178.6-178.6s-178.6,80-178.6,178.6l0,0H378.7L378.7,201.3z"/>
+    <polygon
+      class="grey"
+      points="199.8,141.7 159.7,101.6 155.4,106 199.8,150.4 244.2,106 239.8,101.6 	"/>
+  </g>
+</svg>

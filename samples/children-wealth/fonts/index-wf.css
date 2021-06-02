@@ -1,0 +1,152 @@
+/* @import 'font-awesome.css'; */
+@font-face{ font-family: 'wfIcons'; font-style: normal; font-weight: 400; src: url('FontAwesome.ttf'); }
+
+/* Wells Fargo Serif regular */
+@font-face {
+    font-family: 'WF-Serif';
+    src: url('wf-serif/WellsFargoSerif_W_Rg.woff');
+    font-weight: 400;
+    font-style: normal;
+    font-stretch: normal;
+}
+
+/* Wells Fargo Serif bold */
+@font-face {
+    font-family: 'WF-Serif';
+    src: url('wf-serif/WellsFargoSerif_W_Bd.woff');
+    font-weight: 700;
+    font-style: normal;
+    font-stretch: normal;
+}
+
+/* Wells Fargo Serif italic */
+@font-face {
+    font-family: 'WF-Serif';
+    src: url('wf-serif/WellsFargoSerif_W_It.woff');
+    font-weight: 400;
+    font-style: italic;
+    font-stretch: normal;
+}
+
+/* Wells Fargo Serif bold-italic */
+@font-face {
+    font-family: 'WF-Serif';
+    src: url('wf-serif/WellsFargoSerif_W_BdIt.woff');
+    font-weight: 700;
+    font-style: italic;
+    font-stretch: normal;
+}
+
+/* Wells Fargo Serif light */
+@font-face {
+    font-family: 'WF-Serif';
+    src: url('wf-serif/WellsFargoSerif_W_Lt.woff');
+    font-weight: 200;
+    font-style: normal;
+    font-stretch: normal;
+}
+
+/* Wells Fargo Serif semibold */
+@font-face {
+    font-family: 'WF-Serif';
+    src: url('wf-serif/WellsFargoSerif_W_SBd.woff');
+    font-weight: 600;
+    font-style: normal;
+    font-stretch: normal;
+}
+
+/* Wells Fargo Sans regular */
+@font-face {
+    font-family: 'WF-Sans';
+    src: url('wf-sans/WellsFargoSans_W_Rg.woff');
+    font-weight: 400;
+    font-style: normal;
+    font-stretch: normal;
+}
+
+/* Wells Fargo Sans bold */
+@font-face {
+    font-family: 'WF-Sans';
+    src: url('wf-sans/WellsFargoSans_W_Bd.woff');
+    font-weight: 700;
+    font-style: normal;
+    font-stretch: normal;
+}
+
+/* Wells Fargo Sans italic */
+@font-face {
+    font-family: 'WF-Sans';
+    src: url('wf-sans/WellsFargoSans_W_It.woff');
+    font-weight: 400;
+    font-style: italic;
+    font-stretch: normal;
+}
+
+/* Wells Fargo Sans bold-italic */
+@font-face {
+    font-family: 'WF-Sans';
+    src: url('wf-sans/WellsFargoSans_W_BdIt.woff');
+    font-weight: 700;
+    font-style: italic;
+    font-stretch: normal;
+}
+
+/* Wells Fargo Sans condensed */
+@font-face {
+    font-family: 'WF-Sans';
+    src: url('wf-sans/WellsFargoSans_W_Cd.woff');
+    font-weight: 400;
+    font-style: normal;
+    font-stretch: condensed;
+}
+
+/* Wells Fargo Sans light */
+@font-face {
+    font-family: 'WF-Sans';
+    src: url('wf-sans/WellsFargoSans_W_Lt.woff');
+    font-weight: 200;
+    font-style: normal;
+    font-stretch: normal;
+}
+
+/* Wells Fargo Sans semibold */
+@font-face {
+    font-family: 'WF-Sans';
+    src: url('wf-sans/WellsFargoSans_W_SBd.woff');
+    font-weight: 600;
+    font-style: normal;
+    font-stretch: normal;
+}
+
+/* Wells Fargo Sans display */
+@font-face {
+    font-family: 'WF-Sans';
+    src: url('wf-sans/WellsFargoSans_Display.ttf');
+    font-weight: 100;
+    font-style: normal;
+    font-stretch: normal;
+}
+
+/* Wells Fargo Serif display */
+@font-face {
+    font-family: 'WF-Serif';
+    src: url('wf-serif/WellsFargoSerif_Display.ttf');
+    font-weight: 100;
+    font-style: normal;
+    font-stretch: normal;
+}
+
+/*
+NOTE:
+
+  WEIGHT INDEX
+    100 - Thin (Display?)
+    200 - Extra Light, Ultra Light
+    300 - Light
+    400 - Normal, Book, Regular
+    500 - Medium
+    600 - Semi Bold, Demi Bold
+    700 - Bold
+    800 - Extra Bold, Ultra Bold
+    900 - ßlack, Heavy
+*/

@@ -73,3 +73,10 @@ body:not(.fancy) {
     bottom: -($mingap);
   }
 }
+
+$lite: white;
+@import '../styles/scrollshade.scss';
+.scrollshade {
+  margin: 1rem;
+  max-height: 80vh;
+}

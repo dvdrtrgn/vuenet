@@ -4,6 +4,8 @@ $dark: black;
 $deep: #135;
 $ghost: rgba($bluish, 0.6);
 $lite: white;
+$main: 72vh;
+$mobile: 38rem;
 
 html {
   height: 100vh;
@@ -68,6 +70,7 @@ section {
 
 .fancy,
 html[dir] {
-  @import 'styles/footer.scss';
-  @import 'styles/misc.scss';
+  @import './styles/footer.scss';
+  @import './styles/misc.scss';
+  @import './styles/scrollshade.scss';
 }

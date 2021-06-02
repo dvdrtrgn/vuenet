@@ -1,0 +1,28 @@
+main {
+  background-color: pink;
+  height: 200vh;
+  overflow: hidden;
+  position: relative;
+}
+.test {
+  position: relative;
+  text-align: center;
+}
+.tests {
+  background-color: gray;
+  display: inline-block;
+  position: relative;
+  left: 33%;
+  margin: 3rem;
+  margin-top: 60%;
+  padding: 1rem;
+}
+
+#Test1 {
+  background-color: cyan;
+  top: 90vh;
+}
+#Test2 {
+  background-color: yellow;
+  top: 110vh;
+}

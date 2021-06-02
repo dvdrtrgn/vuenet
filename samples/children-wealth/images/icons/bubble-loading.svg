@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 40">
+<style>
+  @keyframes pulse {
+    0% { opacity: 0; }
+    50% { opacity: 1; }
+    100% { opacity: 0; }
+  }
+  .pulse1, .pulse2, .pulse3 {
+    animation: pulse 1.4s infinite;
+    fill: silver;
+  }
+  .pulse1 { animation-delay: 0.3s; }
+  .pulse2 { animation-delay: 0.6s; }
+  .pulse3 { animation-delay: 0.9s; }
+</style>
+<g class="layer">
+  <circle class="pulse1" cx="20" cy="20" r="10" fill="gray" />
+  <circle class="pulse2" cx="50" cy="20" r="10" fill="gray" />
+  <circle class="pulse3" cx="80" cy="20" r="10" fill="gray" />
+</g>
+</svg>

@@ -1,0 +1,37 @@
+/* @import 'font-awesome.css'; */
+@font-face{ font-family: 'wfIcons'; font-style: normal; font-weight: 400; src: url('FontAwesome.ttf'); }
+
+@font-face {
+  font-family: 'abSans';
+  font-style: normal;
+  font-weight: 300;
+  src: url('ab-proxima/ProximaNova-Light.ttf');
+}
+
+@font-face {
+  font-family: 'abSans';
+  font-style: normal;
+  font-weight: 400;
+  src: url('ab-proxima/ProximaNova-Reg.ttf');
+}
+
+@font-face {
+  font-family: 'abSans';
+  font-style: normal;
+  font-weight: 500;
+  src: url('ab-proxima/ProximaNova-Sbold.ttf');
+}
+
+@font-face {
+  font-family: 'abSans';
+  font-style: normal;
+  font-weight: 600;
+  src: url('ab-proxima/ProximaNova-Sbold.ttf');
+}
+
+@font-face {
+  font-family: 'abSans';
+  font-style: normal;
+  font-weight: 700;
+  src: url('ab-proxima/ProximaNova-Bold.ttf');
+}

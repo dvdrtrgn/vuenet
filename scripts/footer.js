@@ -30,7 +30,11 @@ window.Footer = new Vue({
   methods: {},
   computed: {
     loc() {
-      return window.location.href.replace(/http.*:\/\//, '').replace('.html', '');
+      let loc = window.location.href;
+      loc = loc.replace(/http.*:\/\//, '');
+      loc = loc.replace('deploy-preview-1--', '');
+      loc = loc.replace('.html', '');
+      return loc;
     },
   },
 });

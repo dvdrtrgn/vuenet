@@ -1,0 +1,34 @@
+.scrollshade {
+  $lg: 4rem;
+  $md: ($lg/4);
+  $sm: ($lg/8);
+  $back: rgba($lite, 1);
+  $shad: rgba(black, 0.1);
+  $shadT: linear-gradient(to bottom, $shad, transparent);
+  $shadB: linear-gradient(to top, $shad, transparent);
+  & {
+    background-image: $shadT, $shadB;
+    background-attachment: scroll, scroll;
+    background-repeat: no-repeat;
+    background-position: top, bottom;
+    background-size: 100% $sm, 100% $sm;
+    overflow: auto;
+  }
+  > * {
+    $maskT: linear-gradient(0deg, rgba($back, 0), $back 50%);
+    $maskB: linear-gradient(0deg, $back 50%, rgba($back, 0));
+    $maskL: linear-gradient(90deg, $back 30%, rgba($back, 0));
+    $maskR: linear-gradient(90deg, rgba($back, 0), $back 70%);
+    $shadL: radial-gradient(farthest-side at left, $shad, transparent);
+    $shadR: radial-gradient(farthest-side at right, $shad, transparent);
+
+    background-image: $maskT, $maskB, $maskL, $maskR, $shadL, $shadR;
+    background-attachment: local, local, local, local, scroll, scroll;
+    background-repeat: no-repeat;
+    background-position: top, bottom, left, right, left, right;
+    background-size: 100% $md, 100% $md, $lg 100%, $lg 100%, $md 100%, $md 100%;
+    display: block;
+    margin: 0;
+    overflow: auto;
+  }
+}

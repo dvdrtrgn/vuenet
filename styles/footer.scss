@@ -1,8 +1,7 @@
-
 footer {
   bottom: 0;
   font-size: 0.8em;
-  height: 30vh;
+  height: 100vh - $main;
   line-height: 1.8;
   margin-top: 1rem;
   position: fixed;
@@ -30,11 +29,14 @@ footer {
     position: absolute;
     width: 100%;
   }
-}
 
-@media (max-height: 30rem) {
-  footer {
-    height: 15rem;
+  @media (max-height: $mobile) {
+    min-height: $mobile/3;
     position: relative;
+  }
+  @media (max-width: $mobile/2) {
+    .loc {
+      display: none;
+    }
   }
 }
