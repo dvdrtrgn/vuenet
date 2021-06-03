@@ -79,4 +79,8 @@ $lite: white;
 .scrollshade {
   margin: 1rem;
   max-height: 80vh;
+
+  pre {
+    background-color: rgba(black, 0.03);
+  }
 }
