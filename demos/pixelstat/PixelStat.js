@@ -1,3 +1,7 @@
+/* eslint-disable no-underscore-dangle */
+/* eslint-disable no-param-reassign */
+/* eslint-disable lines-between-class-members */
+/* eslint-disable class-methods-use-this */
 /*
   PixelStat (by dvdrtrgn 2021-06-08)
 
@@ -9,30 +13,29 @@
 const W = window;
 const DE = document.documentElement;
 
-const Round = num => Number(num.toFixed(5));
+const Round = (num) => Number(num.toFixed(5));
 const VH = () => Math.max(DE.clientHeight || 0, W.innerHeight || 0);
 const VW = () => Math.max(DE.clientWidth || 0, W.innerWidth || 0);
 
 class Pixels {
-  #ele = DE;
-  #resets = false;
-  classes = null;
-
-  #resetEl = function(oldList, newList) {
-    if (oldList) oldList.forEach(e => this.#ele.classList.remove(e));
-    if (newList) newList.forEach(e => this.#ele.classList.add(e));
-    return newList;
-  };
-  #updateEl = function(doit) {
-    if (doit != null) doit = Boolean(doit);
-    else if (!this.#resets) return;
-    if (doit == null) doit = true; // permissive continuation
-
-    let newClasses = doit ? this.classes : false;
-    this.#resets = this.#resetEl(this.#resets, newClasses);
-  };
-
   constructor() {
+    this._resetEl = function (oldList, newList) {
+      if (oldList) oldList.forEach((e) => this._ele.classList.remove(e));
+      if (newList) newList.forEach((e) => this._ele.classList.add(e));
+      return newList;
+    };
+    this._updateEl = function (doit) {
+      if (doit != null) doit = Boolean(doit);
+      else if (!this._resets) return;
+      if (doit == null) doit = true; // permissive continuation
+
+      const newClasses = doit ? this.classes : false;
+      this._resets = this._resetEl(this._resets, newClasses);
+    };
+    this._ele = DE;
+    this._resets = false;
+    this.classes = null;
+
     this.update = this.update.bind(this);
     this.update();
   }
@@ -75,19 +78,19 @@ class Pixels {
       this.classShape(),
       this.classSize(),
     ];
-    this.#updateEl();
+    this._updateEl();
   }
 
   watchWindow(arg) {
-    this.#updateEl(false); // clear any previous
-    if (arg && arg.childNodes) this.#ele = arg;
+    this._updateEl(false); // clear any previous
+    if (arg && arg.childNodes) this._ele = arg;
 
-    this.#updateEl(true);
+    this._updateEl(true);
     W.addEventListener('resize', this.update);
   }
   unwatchWindow() {
     W.removeEventListener('resize', this.update);
-    this.#updateEl(false);
+    this._updateEl(false);
   }
 
   classMega() {
@@ -95,7 +98,7 @@ class Pixels {
 
     if (mp < 0.7) mp = 'submega';
     else if (mp < 1) mp = 'mega1';
-    else mp = 'mega' + mp.toPrecision(1);
+    else mp = `mega${mp.toPrecision(1)}`;
 
     return mp;
   }
@@ -133,7 +136,7 @@ class Pixels {
       'watchWindow',
     ];
 
-    keys.forEach(function(key) {
+    keys.forEach((key) => {
       if (skip.includes(key)) return;
       let val = self[key];
       if (typeof val === 'function') val = val.bind(self)();
@@ -144,8 +147,8 @@ class Pixels {
   }
 
   toString() {
-    let obj = this.stats();
-    let arr = Object.entries(obj).map(e => e.join(': '));
+    const obj = this.stats();
+    const arr = Object.entries(obj).map((e) => e.join(': '));
 
     return arr.join('\n');
   }
