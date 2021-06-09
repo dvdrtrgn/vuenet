@@ -11,55 +11,61 @@
 </head>
 
 <body>
-  <h1>Testing Hashtable Class</h1>
-  <p>
-    <a href="./Hashtable.mjs" target="_blank">Hashtable.mjs</a>
-    works with any key that isn’t
-    <code>null/NaN/void</code>.
-    <br>
-    <i>See <code>`foo`</code> in console...</i>
-  </p>
-  <pre id="Code">dump script</pre>
+  <main>
+    <h1>Testing Hashtable Class</h1>
+    <p>
+      <a href="./Hashtable.mjs" target="_blank">Hashtable.mjs</a>
+      works with any key that isn’t
+      <code>Null/NaN</code>.
+      <br>
+      <i>See <code>`test`</code> in console...</i>
+    </p>
 
-  <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes">Reference/Classes</a>
+    <div class="scrollshade">
+      <pre id="Code">dump script</pre>
+    </div>
+
+    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes">Reference/Classes</a>
+  </main>
 
   <script type="module" id="Test">
     import Hashtable from './Hashtable.mjs'
 
-    console.log(window.foo = new Hashtable())
+    const test = new Hashtable();
+    console.log({test});
 
-    foo.set(window, window)
-    foo.set(null, null)
-    foo.set(NaN, NaN)
-    foo.set(undefined, undefined)
+    test.set(window, window)
+    test.set(null, null)
+    test.set(NaN, NaN)
+    test.set(undefined, undefined)
 
-    foo.set(4, 'four')
-    console.assert(foo.get(4) === 'four', '4 is four')
-    foo.set('4', 'Four')
-    console.assert(foo.get('4') === 'Four', '"4" is Four')
-    console.assert(foo.size === 3, 'size 3')
+    test.set(4, 'four')
+    console.assert(test.get(4) === 'four', '4 is four')
+    test.set('4', 'Four')
+    console.assert(test.get('4') === 'Four', '"4" is Four')
+    console.assert(test.size === 3, 'size 3')
 
-    foo.set('4', 'Four!')
-    console.assert(foo.get('4') === 'Four!', '"4" is Four!')
+    test.set('4', 'Four!')
+    console.assert(test.get('4') === 'Four!', '"4" is Four!')
 
-    console.assert(foo.remove(window), 'remove window')
-    console.assert(foo.size === 2, 'size 2')
+    console.assert(test.remove(window), 'remove window')
+    console.assert(test.size === 2, 'size 2')
 
-    foo.set(Hashtable, Hashtable)
-    foo.set(0, 0)
-    foo.set(false, false)
-    foo.set('', '')
-    foo.set({}, [])
-    foo.set([], {})
-    foo.display()
+    test.set(Hashtable, Hashtable)
+    test.set(0, 0)
+    test.set(false, false)
+    test.set('', '')
+    test.set({}, [])
+    test.set([], {})
+    test.display()
 
-    foo.remove(Hashtable)
-    foo.remove(0)
-    foo.remove(false)
-    foo.remove('')
-    foo.display()
+    test.remove(Hashtable)
+    test.remove(0)
+    test.remove(false)
+    test.remove('')
+    test.display()
 
-    foo.dir()
+    test.dir()
   </script>
 
   <script>

@@ -13,10 +13,13 @@ body:not(.fancy) {
 
   code {
     color: steelblue;
+    display: inline-block;
     white-space: nowrap;
   }
   main {
-    text-align: left;
+    margin: auto;
+    max-width: 40em;
+    // text-align: left;
   }
   pre {
     overflow: auto;
@@ -79,4 +82,8 @@ $lite: white;
 .scrollshade {
   margin: 1rem;
   max-height: 80vh;
+
+  pre {
+    background-color: rgba(black, 0.03);
+  }
 }

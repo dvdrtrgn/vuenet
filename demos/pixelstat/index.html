@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../demos.css">
+  <title>Testing PixelStat</title>
+  <style>
+    #Show {
+      position: relative;
+    }
+
+    #Show::after {
+      color: red;
+      content: ' 'attr(class) ' ';
+      display: block;
+      font-size: large;
+      position: absolute;
+      text-align: center;
+      top: 1rem;
+      width: 100%;
+    }
+  </style>
+</head>
+
+<body>
+  <main>
+    <h1>Testing PixelStat</h1>
+
+    <p>
+      Make new <code>PixelStat</code> for viewport properties
+    </p>
+    <p>
+      Call <code>watchWindow([element])</code> have it always updating
+    </p>
+    <p>
+      [if you send in a dom element it will receive classes]
+    </p>
+
+    <p>
+      <a href="./PixelStat.js" target="_blank">PixelStat.js</a>
+      <!-- helper functions
+      <code>[mockReq, procReq, que]</code>.
+      <br>
+      <i>See console...</i> -->
+    </p>
+
+    <div class="scrollshade">
+      <pre id="Code">dump script</pre>
+    </div>
+
+    <div id="Show">
+      <p>CLASS VALUE</p>
+    </div>
+
+  </main>
+
+  <script type="module" id="Test">
+    import PixelStat from './PixelStat.js';
+
+    const div = document.querySelector('#Show');
+    const lib = new PixelStat();
+
+    div.innerHTML += `<code><pre>${lib.toString()}</pre></code>`;
+    console.log(lib);
+    lib.watchWindow(div);
+  </script>
+
+  <script>
+    const $ = document.querySelector.bind(document);
+
+    $('#Code').textContent = $('#Test').textContent;
+  </script>
+
+  <script id="Tnav" type="module" src='../Tnav.js'></script>
+</body>
+
+</html>
