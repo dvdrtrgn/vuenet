@@ -13,10 +13,13 @@ body:not(.fancy) {
 
   code {
     color: steelblue;
+    display: inline-block;
     white-space: nowrap;
   }
   main {
-    text-align: left;
+    margin: auto;
+    max-width: 50em;
+    // text-align: left;
   }
   pre {
     overflow: auto;

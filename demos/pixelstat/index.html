@@ -8,57 +8,64 @@
   <link rel="stylesheet" href="../demos.css">
   <title>Testing PixelStat</title>
   <style>
-    #Code {
+    #Show {
       position: relative;
     }
-    #Code::before,
-    #Code::after {
+
+    #Show::after {
       color: red;
+      content: ' 'attr(class) ' ';
       display: block;
       font-size: large;
       position: absolute;
       text-align: center;
-      top: 0;
+      top: 1rem;
       width: 100%;
-    }
-    #Code::before {
-      content: 'class attribute... ' attr(class);
     }
   </style>
 </head>
 
 <body>
-  <h1>Testing PixelStat</h1>
-  <p>
-    Make new <code>PixelStat</code> for viewport properties
-    <br>
-    Call <code>watchWindow([element])</code> have it always updating
-    <br>
-    [if you send in a dom element it will receive classes]
-  </p>
-  <p>
-    <a href="./PixelStat.js" target="_blank">PixelStat.js</a>
-    <!-- helper functions
-    <code>[mockReq, procReq, que]</code>.
-    <br>
-    <i>See console...</i> -->
-  </p>
+  <main>
+    <h1>Testing PixelStat</h1>
 
-  <div class="scrollshade">
-    <pre id="Code">dump script</pre>
-  </div>
+    <p>
+      Make new <code>PixelStat</code> for viewport properties
+    </p>
+    <p>
+      Call <code>watchWindow([element])</code> have it always updating
+    </p>
+    <p>
+      [if you send in a dom element it will receive classes]
+    </p>
+
+    <p>
+      <a href="./PixelStat.js" target="_blank">PixelStat.js</a>
+      <!-- helper functions
+      <code>[mockReq, procReq, que]</code>.
+      <br>
+      <i>See console...</i> -->
+    </p>
+
+    <div class="scrollshade">
+      <pre id="Code">dump script</pre>
+    </div>
+
+    <div id="Show">
+      <p>CLASS VALUE</p>
+    </div>
+
+  </main>
 
   <script type="module" id="Test">
-
     import PixelStat from './PixelStat.js';
 
-    const pixst = window.pixst = new PixelStat();
-    const divel = document.querySelector('#Code');
+    const lib = window.lib = new PixelStat();
+    const div = document.querySelector('#Show');
 
-    pixst.watchWindow();
-
-    pixst.watchWindow(divel);
-
+    lib.watchWindow(div);
+    div.innerHTML += `<code><pre>${lib.toString()}</pre></code>`;
+    console.log(lib);
   </script>
 
   <script>
