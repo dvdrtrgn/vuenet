@@ -60,12 +60,12 @@
   <script type="module" id="Test">
     import PixelStat from './PixelStat.js';
 
-    const lib = window.lib = new PixelStat();
     const div = document.querySelector('#Show');
+    const lib = new PixelStat();
 
-    lib.watchWindow(div);
     div.innerHTML += `<code><pre>${lib.toString()}</pre></code>`;
     console.log(lib);
+    lib.watchWindow(div);
   </script>
 
   <script>
