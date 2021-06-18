@@ -21,21 +21,21 @@ function activate(data) {
   // Traps all property accessors
 
   const handler = {
-    get(obj, key) {
-      Dep.propLog('get', key, obj[key]);
+    get(trgo, key, rcvo) {
+      Dep.propLog('get', key, trgo[key]);
 
       getDep(key).depend(key); // Prop accessed, ensure context is recorded
 
-      return Reflect.get(obj, key);
+      return Reflect.get(trgo, key, rcvo);
     },
-    set(obj, key, newVal) {
-      const propVal = Reflect.get(obj, key);
-      const changed = propVal !== newVal;
+    set(trgo, key, val, rcvo) {
+      const propVal = Reflect.get(trgo, key);
+      const changed = propVal !== val;
 
       if (changed) {
-        Dep.propLog('set', key, newVal);
+        Dep.propLog('set', key, val);
 
-        Reflect.set(obj, key, newVal);
+        Reflect.set(trgo, key, val, rcvo);
         getDep(key).notify(key); // New value, so replay my recorded contexts
       }
       return true;
