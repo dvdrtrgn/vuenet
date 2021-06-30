@@ -2,6 +2,9 @@
 //
 import 'https://unpkg.com/vue@2.6.12';
 
+// import LogRocket from 'logrocket';
+// LogRocket.init('ox0wqw/mynetlify');
+
 window.Footer = new Vue({
   el: '#Footer',
   name: 'Footer',
