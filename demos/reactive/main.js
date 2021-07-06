@@ -3,7 +3,7 @@
 globalThis.glob = {
   template_object: { count: 0, price: 0, sale: 0, total: 0 },
   log_pause: false,
-  log_compact: true,
+  log_compact: !true,
   log_spacer: true,
 };
 
