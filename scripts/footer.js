@@ -1,26 +1,8 @@
-/* global Vue, LogRocket, */
+/* global Vue, */
 //
 import 'https://unpkg.com/vue@2.6.12';
-import './lib/logrocket.js'; // import LogRocket from 'logrocket';
 
-LogRocket.init('ox0wqw/mynetlify');
-
-fetch('https://api.ipify.org?format=json')
-  .then((data) => data.json())
-  .then((data) => {
-    const { host, pathname: path } = window.location;
-    console.log('log:rock', data.ip, 'from', host, 'at', path);
-
-    LogRocket.identify(data.ip, {
-      name: 'user',
-      email: `user@${data.ip}`,
-      // Add your own custom user variables here, ie:
-      custom1: `host ${host}`,
-      custom2: `path ${path}`,
-    });
-  });
-
-window.Footer = new Vue({
+window.Footer = document.querySelector('#Footer') && new Vue({
   el: '#Footer',
   name: 'Footer',
   components: {},
