@@ -32,20 +32,6 @@
   </main>
 
   <script id="Footer" src="./scripts/footer.js" type="module"></script>
-  <script src="https://cdn.lr-ingest.io/LogRocket.min.js" crossorigin="anonymous"></script>
-  <script>window.LogRocket && window.LogRocket.init('ox0wqw/mynetlify');</script>
-  <script>
-    fetch('https://api.ipify.org?format=json')
-      .then(data => data.json())
-      .then(data => {
-        LogRocket.identify(data.ip, {
-          name: 'anon',
-          email: 'anon@example.com',
-          // Add your own custom user variables here, ie:
-          custom: 'foo'
-        });
-      });
-  </script>
 </body>
 
 </html>
