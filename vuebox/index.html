@@ -1,15 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" href="/vuebox/favicon.ico" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite App</title>
-    <script type="module" crossorigin src="/vuebox/assets/index.f4ff051a.js"></script>
-    <link rel="stylesheet" href="/vuebox/assets/index.10866adf.css">
-  </head>
-  <body>
-    <div id="app"></div>
 
-  </body>
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" href="/vuebox/favicon.ico" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vite App</title>
+  <style>
+    .top, .bottom, .right, .left {
+      align-items: center;
+      display: flex;
+      justify-content: center;
+      position: fixed;
+    }
+    .top, .bottom { left: 0; width: 100%; }
+    .right, .left { top: 0; height: 100%; }
+    .top { top: 0; }
+    .bottom { bottom: 0; }
+    .right { right: 0; }
+    .left { left: 0; }
+  </style>
+  <script type="module" crossorigin src="/vuebox/assets/index.abfd9591.js"></script>
+  <link rel="stylesheet" href="/vuebox/assets/index.28c7886e.css">
+</head>
+
+<body>
+  <main id="App"></main>
+  
+
+  <aside class="top"></aside>
+  <aside class="right"></aside>
+  <aside class="bottom"></aside>
+  <aside class="left"></aside>
+</body>
+
 </html>
