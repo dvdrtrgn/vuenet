@@ -4,26 +4,32 @@
 <head>
   <meta charset="utf-8">
   <title>Contact</title>
-  <meta name="viewport" content="width=device-width, maximum-scale=1, minimum-scale=1">
+  <meta name="viewport"
+    content="width=device-width, maximum-scale=1, minimum-scale=1">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
 
   <link rel="stylesheet" href="../base.css">
   <link rel="stylesheet" href="./style.css">
+  <script
+    src="https://www.google.com/recaptcha/api.js?render=6LcA3AEkAAAAAFXdZvBGyEPhaIffBsVq4RRUxp6A"></script>
 </head>
 
 <body>
   <main id="App">
     <h2>Contact Me</h2>
 
-    <form @submit.prevent="listener()">
+    <form id="Form" @submit.prevent="listener()">
       <label>
-        <input v-model="senderName" name="name" type="text" placeholder="Your Name" required>
+        <input v-model="senderName" name="name" type="text"
+          placeholder="Your Name" required>
       </label>
       <label>
-        <input v-model="senderEmail" name="email" type="email" placeholder="Your Email">
+        <input v-model="senderEmail" name="email" type="email"
+          placeholder="Your Email">
       </label>
       <label>
-        <textarea v-model="message" name="message" placeholder="Message" required></textarea>
+        <textarea v-model="message" name="message" placeholder="Message"
+          required></textarea>
       </label>
 
       <input type="submit">

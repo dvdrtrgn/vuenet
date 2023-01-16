@@ -1,9 +1,10 @@
 // RUNS ON AWS! (sdk in the path)
 
 const aws = require('aws-sdk');
+
 const ses = new aws.SES({ region: 'us-east-1' });
 
-exports.handler = async function (event) {
+exports.handler = async function handler(event) {
   console.log('EVENT: ', event);
   // Extract the properties from the event body
   const { senderEmail, senderName, message } = JSON.parse(event.body);
