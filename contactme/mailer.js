@@ -1,4 +1,4 @@
-/* global Vue, */
+/* global Vue, grecaptcha, */
 //
 import 'https://unpkg.com/vue@2.6.12';
 
@@ -27,6 +27,31 @@ window.Mailer = new Vue({
   },
   methods: {
     listener() {
+      grecaptcha.ready(() => {
+        grecaptcha.execute('6LcA3AEkAAAAAFXdZvBGyEPhaIffBsVq4RRUxp6A',
+          { action: 'submit' })
+          .then((token) => {
+            console.log({ token });
+            const secret = '6LcA3AEkAAAAAIkdek_5yFTr6ZtJMOWxcm8jODI0';
+            const body = `secret=${secret}&response=${token}`;
+
+            fetch('https://www.google.com/recaptcha/api/siteverify',
+              {
+                body,
+                method: 'post',
+                mode: 'no-cors',
+              })
+              .then((res) => res.json())
+              .then((res) => {
+                console.log(res);
+                console.log(grecaptcha.getResponse());
+              });
+
+            // document.getElementById('Form').submit();
+            // Add your logic to submit to your backend server here.
+          });
+      });
+
       this.validate();
 
       if (!this.errors.length) {
