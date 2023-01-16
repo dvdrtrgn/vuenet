@@ -3,6 +3,7 @@
     "test": "browser-sync start --server --files **"
   },
   "devDependencies": {
+    "browser-sync": "^2.27.11",
     "eslint": "^7.32.0",
     "eslint-config-airbnb-base": "^14.2.1",
     "eslint-plugin-import": "^2.26.0",
